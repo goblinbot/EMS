@@ -1,0 +1,12 @@
+@import url(/EMS/_includes/fonts/font-awesome.min.css);
+@font-face {
+  font-family: 'orbitron-medium';
+  src: url(/EMS/_includes/fonts/orbitron-medium.otf); }
+@font-face {
+  font-family: 'orbitron-bold';
+  src: url(/EMS/_includes/fonts/orbitron-bold.otf); }
+@font-face {
+  font-family: 'orbitron-light';
+  src: url(/EMS/_includes/fonts/orbitron-light.otf); }
+
+/*# sourceMappingURL=fonts.css.map */

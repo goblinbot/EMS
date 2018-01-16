@@ -1,0 +1,367 @@
+@import 'fonts.scss';
+
+$donker : #222;
+$donker-alt : #333;
+$wit : #FFF;
+$defaultspace : 8px;
+
+$primary : rgba(255, 102, 0, 1);
+$primary-dark : darken( $primary, 10% );
+$primary-light : lighten( $primary, 10% );
+
+$beaconblauw : #39DBCC;
+$gubatgeel : #FFCC00;
+$orbitgreen : #4fe38b;
+
+$fontstack : sans-serif, arial, verdana;
+$fontstackAlt : 'orbitron-light',sans-serif, arial, verdana;
+$fontstackTitle : 'orbitron-bold',sans-serif, arial, verdana;
+
+.oc {
+  display: none;
+}
+
+label {
+  font-weight: bold;
+}
+
+html {
+  font-family: $fontstack;
+}
+
+body {
+  background-color: $donker;
+  background-image: url('/ems/_img/citadel.jpg');
+  margin: 0;
+  padding: 0;
+}
+
+/* functie om alle transitions ONLOAD te disablen voor een seconde. Dit zorgt ervoor dat websites niet 20 kanten op springen. */
+.notransition * {
+	-webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+h1 {
+  margin: $defaultspace;
+  padding:$defaultspace;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: $fontstackTitle;
+  text-transform: uppercase;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+input, select {
+  border: 1px solid #222;
+  transition: 0.4s;
+
+  &:hover, &:focus, &:active {
+    border-color: rgba($orbitgreen,0.5);
+  }
+
+  &.textinput, &.numbers {
+    border-color: #CCC;
+    padding: 4px;
+    border-radius: 2px;
+    text-align: left;
+    margin: 1px;
+    width: 100%;
+  }
+
+  &.numbers {
+    max-width: 8rem;
+  }
+
+}
+
+.main-row {
+
+  height: 100%;
+  width: 100%;
+  display: grid;
+  // grid-template-rows: 1fr 1fr 2fr 1fr;
+
+  .row {
+    width: 100%;
+    padding: $defaultspace;
+    // margin-bottom: $defaultspace;
+
+    img {
+      max-height: 160px;
+    }
+  }
+
+}
+
+.alert-dialog {
+
+  padding-top: 15px;
+
+  h2,h3,h4,p {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  h2,h3,h4 {
+    margin-top: 0;
+  }
+
+  background: rgba($primary, 0.2);
+}
+
+.maincontent {
+  width: 100vw;
+  height: 100vh;
+
+  transition: 0.4s;
+
+  background-image: url('/ems/_img/citadel.jpg');
+
+  display: grid;
+  grid-template-columns: 64px 156px 1fr 64px ;
+  grid-template-rows: 64px 128px 1fr 32px;
+  grid-gap: 8px 8px;
+  grid-template-areas:
+    "logo topbar topbar account"
+    "vertibar menu main main"
+    "vertibar menu main main"
+    "empty-1 empty-2 footer footer";
+
+
+  @media(max-width:1100px) {
+
+    grid-template-columns: 64px 92px 1fr 64px ;
+    grid-template-rows: 64px 56px 1fr 32px;
+    grid-gap: 8px 8px;
+    grid-template-areas:
+      "logo topbar topbar account"
+      "vertibar vertibar vertibar vertibar"
+      "menu menu main main"
+      "empty-1 empty-2 footer footer";
+  }
+
+  @media(max-width:768px) {
+
+    grid-template-columns: 64px 1fr ;
+    grid-template-rows: 64px 56px 1fr;
+    grid-gap: 8px 8px;
+    grid-template-areas:
+      "logo account"
+      "vertibar vertibar"
+      "menu main";
+
+    .empty-1, .empty-2, .footer, .topbar {
+      display: none;
+    }
+  }
+
+  @import 'grid1.scss';
+
+
+  .container {
+    padding: 15px;
+    // width: 100%;
+    height: auto;
+
+    @media(max-width:1100px){
+      width: 97%;
+    }
+
+
+    .form-block {
+      margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      max-width: 600px;
+      width: auto;
+
+      .form {
+        display: flex;
+        flex-direction: column;
+
+        input, select {
+          margin: 5px 0;
+          padding: 8px 5px;
+          font-size: 1.4rem;
+
+          &.button {
+            margin-top: 15px;
+            padding: 15px;
+          }
+        }
+        label {
+          font-weight: bold;
+          margin: 5px 0;
+          padding: 5px 15px;
+          font-size: 1.4rem;
+          font-family: $fontstackAlt;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+  }
+}
+
+.weapondbbox {
+  margin: 1.6rem 0;
+}
+
+.ammobox {
+  margin: 1.6rem 0;
+
+  table {
+    tr {
+      td {
+        width: 23%;
+      }
+    }
+  }
+}
+
+.tab {
+  display: none;
+
+  &.on {
+    display: block;
+  }
+}
+
+#clock {
+  font-size: 125%;
+  margin-bottom: 0.8rem;
+  margin-top: 0.4rem;
+  font-family: $fontstackTitle;
+
+  @media(max-width:1100px) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 95%;
+  }
+}
+
+.button {
+  border: 0;
+  padding: 15px;
+  cursor: pointer;
+  display: inline-block;
+
+  color: $wit;
+  font-weight: bold;
+  text-decoration: none;
+
+  background: $primary;
+  &:hover, &:active, &.active {
+    background: $primary-light;
+  }
+
+  &.button-default {
+    background: #777;
+    &:hover, &:active {
+      background: #999;
+    }
+  }
+
+  &.buttonblock {
+    width: 100%;
+    font-size: 1.8rem;
+    font-family: $fontstackTitle;
+    text-transform: uppercase;
+
+  }
+
+  &.button-tab {
+    margin: $defaultspace $defaultspace $defaultspace 0;
+    padding: $defaultspace 15px;
+  }
+
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background: #EEE;
+
+  th,
+  td {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+  }
+
+  thead th {
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+    color: $primary-dark;
+    border-top: 2px solid rgba($primary, 0.5);
+  }
+}
+
+
+
+.static-motto {
+  font-size : 3rem;
+  float       : left;
+  text-align  : right;
+  width: 50%;
+}
+
+  .motto {
+    overflow    : hidden;
+    height      : 35px;
+    font-size   : 3rem;
+    float       : right;
+    text-align  : left;
+    width: 50%;
+
+    ul {
+      padding-left        : 8px;
+      list-style          : none;
+      animation           : slidemotto 11s linear 0s normal infinite;
+      // animation-delay     : 1s;
+
+     li {
+        line-height : 35px;
+        margin-left : 0px;
+      }
+    }
+  }
+
+@keyframes slidemotto{
+  0%      {margin-top:0;}
+  8%      {margin-top:0;}
+  17%     {margin-top:-35px;}
+  25%     {margin-top:-35px;}
+  33%     {margin-top:-70px;}
+  37%     {margin-top:-70px;}
+  44%     {margin-top:-105px;}
+  50%     {margin-top:-105px;}
+  59%     {margin-top:-70px;}
+  68%     {margin-top:-70px;}
+  76%     {margin-top:-35px;}
+  85%     {margin-top:-35px;}
+  93%     {margin-top:0;}
+  100%    {margin-top:0;}
+}
