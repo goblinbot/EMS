@@ -45,8 +45,8 @@
             exit();
 
           } else {
-            // bestaat hij al?
-            $sql = $UPLINK->query('SELECT username FROM users WHERE username = "'.mysqli_real_escape_string($UPLINK,$USERDATA["user"]).'"');
+            // does it already exist?
+            $sql = $UPLINK->query('SELECT username FROM ems_users WHERE username = "'.mysqli_real_escape_string($UPLINK,$USERDATA["user"]).'"');
 
             if(mysqli_num_rows($sql) > 0) {
               $VALIDATED = false;
@@ -79,7 +79,7 @@
                   $USERDATA["pass"] = password_hash( $USERDATA["pass"], PASSWORD_BCRYPT,$options );
 
                   // alles gucci!
-                  $sql = "INSERT INTO `users` (`username`, `fullname`, `faction`, `password` )
+                  $sql = "INSERT INTO `ems_users` (`username`, `fullname`, `faction`, `password` )
                   VALUES ( '".mysqli_real_escape_string($UPLINK,$USERDATA["user"])."'
                     , '".mysqli_real_escape_string($UPLINK,$USERDATA["fullname"])."'
                     , '".mysqli_real_escape_string($UPLINK,$USERDATA["faction"])."'

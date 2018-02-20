@@ -1,14 +1,13 @@
 @import 'fonts.scss';
 
-$donker : #524e4d;
+$donker : #222;
 $donker-alt : #333;
-$wit : #f8f8f8;
+$wit : #FFF;
 $defaultspace : 8px;
 
-// $primary : rgba(255, 102, 0, 1);
-$primary : #fa875a;
-$primary-dark : darken( #b6b5b3, 10% );
-$primary-light : #b6b5b3;
+$primary : rgba(255, 102, 0, 1);
+$primary-dark : darken( $primary, 10% );
+$primary-light : lighten( $primary, 10% );
 
 $beaconblauw : #39DBCC;
 $gubatgeel : #FFCC00;
@@ -32,7 +31,7 @@ html {
 
 body {
   background-color: $donker;
-  // background-image: url('/ems/_img/citadel.jpg');
+  background-image: url('/ems/_img/citadel.jpg');
   margin: 0;
   padding: 0;
 }

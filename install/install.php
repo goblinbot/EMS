@@ -9,7 +9,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*======================== create all the necessary database tables. ========================*/
 
       // Create the 'ammoboxes' table. This table keeps track of, for example, the amounts of magazines or grenades you still have left.
-      $sql = "CREATE TABLE IF NOT EXISTS `ar_ammoboxes` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_ar_ammoboxes` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(50) NOT NULL,
         `amount` int(11) NOT NULL DEFAULT '0',
@@ -24,7 +24,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /* Create the 'weapons' table.
       This table contains the weapons and other gear that can have an unique serial number.
       Items in this table can later be deployed. */
-      $sql = "CREATE TABLE IF NOT EXISTS `ar_weapons` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_ar_weapons` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `label` varchar(50) NOT NULL,
         `type` varchar(25) NOT NULL,
@@ -44,7 +44,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*===========================================================================================*/
 
       // Create the 'loans' table. You can compare this table to a 'sales history field.'
-      $sql = "CREATE TABLE IF NOT EXISTS `ar_loans` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_ar_loans` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `weapon_id` int(11) NOT NULL,
         `loaned_to` varchar(50) NOT NULL,
@@ -60,7 +60,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*===========================================================================================*/
 
       // create the USERS field. Registration can be done on the frontend.
-      $sql = "CREATE TABLE IF NOT EXISTS `users` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_users` (
         `id` smallint(6) NOT NULL AUTO_INCREMENT,
         `username` varchar(24) NOT NULL,
         `fullname` varchar(100) NOT NULL,
@@ -75,7 +75,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*===========================================================================================*/
 
       // Create the USERGROUPS. An user can belong to multiple user groups.
-      $sql = "CREATE TABLE IF NOT EXISTS `usergroups` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_usergroups` (
         `group_id` smallint(6) NOT NULL AUTO_INCREMENT,
         `title` varchar(24) NOT NULL,
         PRIMARY KEY (`group_id`)
@@ -112,7 +112,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*===========================================================================================*/
 
       // Create the link between users and usergroups.
-      $sql = "CREATE TABLE IF NOT EXISTS `user_koppeling` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ems_user_koppeling` (
           `id` smallint(6) NOT NULL AUTO_INCREMENT,
           `group_id` smallint(6) DEFAULT NULL,
           `user_id` smallint(6) NOT NULL,
