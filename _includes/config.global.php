@@ -1,10 +1,10 @@
 <?php
 
   // database
-  $mHOST  =    ''; // host
-  $mUSER  =    ''; // username
-  $mPASS  =    ''; // password
-  $mDB    =    ''; // databasename
+  $mHOST  =    '127.0.0.1';
+  $mUSER  =    'root';
+  $mPASS  =    '';
+  $mDB    =    'thijsboerma_ems';
 
   $UPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
 

@@ -18,7 +18,7 @@ if(!isset($_SESSION)) {
 
     $ADD = $_POST['addWeapon'];
 
-    $sql = "SELECT barcode FROM ems_ar_weapons WHERE barcode = '".$ADD['barcode']."' LIMIT 1";
+    $sql = "SELECT barcode FROM ar_weapons WHERE barcode = '".$ADD['barcode']."' LIMIT 1";
     $result = $UPLINK->query($sql);
 
     if(mysqli_num_rows($result) > 0) {
@@ -32,7 +32,7 @@ if(!isset($_SESSION)) {
       }
 
       $sql =
-      "INSERT INTO ems_ar_weapons
+      "INSERT INTO ar_weapons
       (label, type, skilltype, barcode, model, description, OC_owner, status, loan_status
         ) VALUES (
           '".mysqli_real_escape_string($UPLINK,$ADD['label'])."'

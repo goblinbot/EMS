@@ -22,7 +22,7 @@ if(!isset($_SESSION)) {
 
     if($_POST['returnGear']['barcode'] != "" && $_POST['returnGear']['return_date'] != "") {
 
-      $sql = "SELECT id FROM ems_ar_weapons WHERE barcode = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['barcode'])."' AND loan_status = 'true' LIMIT 1";
+      $sql = "SELECT id FROM ar_weapons WHERE barcode = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['barcode'])."' AND loan_status = 'true' LIMIT 1";
       $result = $UPLINK->query($sql);
 
       if(mysqli_num_rows($result) > 0) {
@@ -31,7 +31,7 @@ if(!isset($_SESSION)) {
 
         $WEAPON_ID = $result;
 
-        $sql = "SELECT id FROM ems_ar_loans WHERE weapon_id = '".$result."' AND loan_status = 'out' ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT id FROM ar_loans WHERE weapon_id = '".$result."' AND loan_status = 'out' ORDER BY id DESC LIMIT 1";
         $result = $UPLINK->query($sql);
 
         if(mysqli_num_rows($result) > 0) {
@@ -39,7 +39,7 @@ if(!isset($_SESSION)) {
           $result = mysqli_fetch_assoc($result)['id'];
 
           // zet de loan op voltooid
-          $sql = "UPDATE ems_ar_loans
+          $sql = "UPDATE ar_loans
                   SET return_date = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['return_date'])."'
                     , description = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['description'])."'
                     , loan_status = 'done'
@@ -49,7 +49,7 @@ if(!isset($_SESSION)) {
 
 
           // zet wapen op beschikbaar
-          $sql = "UPDATE ems_ar_weapons SET loan_status = 'false', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
+          $sql = "UPDATE ar_weapons SET loan_status = 'false', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
           $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
           header("location: history.php?ref=updated");

@@ -26,7 +26,7 @@ if(!isset($_SESSION)) {
 
     if(isset($POSTDATA['barcode']) && $POSTDATA['barcode'] != "") {
 
-      $sql = "SELECT id FROM ems_ar_weapons WHERE barcode = '".mysqli_real_escape_string($UPLINK,$POSTDATA['barcode'])."' AND loan_status = 'false' LIMIT 1";
+      $sql = "SELECT id FROM ar_weapons WHERE barcode = '".mysqli_real_escape_string($UPLINK,$POSTDATA['barcode'])."' AND loan_status = 'false' LIMIT 1";
       $result = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
       if(mysqli_num_rows($result) > 0) {
@@ -42,7 +42,7 @@ if(!isset($_SESSION)) {
           if(isset($POSTDATA['loan_date']) && $POSTDATA['loan_date'] != "") {
 
             $sql =
-            "INSERT INTO ems_ar_loans
+            "INSERT INTO ar_loans
             (weapon_id, loaned_to, loan_status, loan_date, description
               ) VALUES (
                 '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."'
@@ -54,7 +54,7 @@ if(!isset($_SESSION)) {
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
             // zet wapen op onbeschikbaar
-            $sql = "UPDATE ems_ar_weapons SET loan_status = 'true', status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
+            $sql = "UPDATE ar_weapons SET loan_status = 'true', status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
             header("location: currently_deployed.php?ref=updated");

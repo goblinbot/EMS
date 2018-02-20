@@ -5,7 +5,7 @@ function ar_initAmmoBox() {
   $ammoArr = array();
 
   // haalt de inventory op
-  $sql = "SELECT id,name,type,amount,description FROM ems_ar_ammoboxes ORDER BY name ASC";
+  $sql = "SELECT id,name,type,amount,description FROM ar_ammoboxes ORDER BY name ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen
@@ -53,7 +53,7 @@ function ar_initWeapons($PARAM = null) {
   } else {
     $WHERE = "WHERE status <> 'broken' AND status <> 'inactive' ";
   }
-  $sql = "SELECT id,label,type,skilltype,ammotype,status,barcode,model,description,loan_status,OC_owner,foto FROM ems_ar_weapons ".$WHERE." ORDER BY label ASC";
+  $sql = "SELECT id,label,type,skilltype,ammotype,status,barcode,model,description,loan_status,OC_owner,foto FROM ar_weapons ".$WHERE." ORDER BY label ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen
@@ -110,8 +110,8 @@ function ar_getLoans($PARAMS = null) {
   }
 
   $sql = "SELECT lo.id, we.barcode, we.label, we.model, we.type, we.status, lo.loaned_to, lo.loan_status, lo.loan_date, lo.return_date, lo.description
-    FROM ems_ar_loans AS lo
-    INNER JOIN ems_ar_weapons AS we
+    FROM ar_loans AS lo
+    INNER JOIN ar_weapons AS we
     ON lo.weapon_id = we.id
     ".$WHERE."
     ORDER BY id DESC";

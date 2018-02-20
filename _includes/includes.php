@@ -150,8 +150,8 @@ $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Gear exchange';
 //   $_MODULES["modules"]["medbay"][$module_counter]->usergroups = ['medbay','finance'];
 //
 //   $module_counter++;
-//
-// ////////////////
+
+////////////////
 // $_MODULES["modules"]["medbay"][$module_counter] = new moduleObj();
 // $_MODULES["modules"]["medbay"][$module_counter]->title = 'Medical history';
 //   $_MODULES["modules"]["medbay"][$module_counter]->url = $_CONFIG["header"].'/_modules/medbay/medicalhistory.php';
