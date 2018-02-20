@@ -36,7 +36,7 @@
 
       $query  =
       "SELECT username, fullname, faction, approved, password
-        FROM ems_users
+        FROM users
         WHERE username = '".mysqli_escape_string($UPLINK,$ems_user)."'
         LIMIT 1";
       $result = $UPLINK->query($query);
