@@ -23,7 +23,7 @@ if(!isset($_SESSION)) {
         }
 
         if(is_numeric($ID)) {
-          $sql = "UPDATE ar_weapons
+          $sql = "UPDATE ems_ar_weapons
                   SET status = '".mysqli_real_escape_string($UPLINK,$update['status'])."'
                     WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'
                     LIMIT 1";

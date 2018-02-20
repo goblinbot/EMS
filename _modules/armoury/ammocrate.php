@@ -22,7 +22,7 @@ if(!isset($_SESSION)) {
       foreach($_POST['updateInventory'] AS $ID => $inventoryupdate) {
 
         if(is_numeric($inventoryupdate['amount']) && is_numeric($ID)) {
-          $sql = "UPDATE ar_ammoboxes
+          $sql = "UPDATE ems_ar_ammoboxes
                   SET amount = '".mysqli_real_escape_string($UPLINK,(int)$inventoryupdate['amount'])."'
                     , description = '".mysqli_real_escape_string($UPLINK,$inventoryupdate['description'])."'
                     WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'

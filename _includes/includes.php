@@ -138,27 +138,27 @@ $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Gear exchange';
     $module_counter++;
 
 // medbay exchange module /////////////////////////////////////////////////////////////////////////
-$_MODULES["modules"]["medbay"] = array();
-$module_counter = 0;
-$parent_counter = "medBay";
-
-$_MODULES["modules"]["medbay"][$module_counter] = new moduleObj();
-$_MODULES["modules"]["medbay"][$module_counter]->title = 'Medbay';
-  $_MODULES["modules"]["medbay"][$module_counter]->url = $_CONFIG["header"].'/_modules/medbay/';
-  $_MODULES["modules"]["medbay"][$module_counter]->icon  = 'fa fa-medkit';
-  $_MODULES["modules"]["medbay"][$module_counter]->menu_level = '0';
-  $_MODULES["modules"]["medbay"][$module_counter]->usergroups = ['medbay','finance'];
-
-  $module_counter++;
-
-////////////////
-$_MODULES["modules"]["medbay"][$module_counter] = new moduleObj();
-$_MODULES["modules"]["medbay"][$module_counter]->title = 'Medical history';
-  $_MODULES["modules"]["medbay"][$module_counter]->url = $_CONFIG["header"].'/_modules/medbay/medicalhistory.php';
-  $_MODULES["modules"]["medbay"][$module_counter]->parent  = $parent_counter;
-  $_MODULES["modules"]["medbay"][$module_counter]->usergroups = ['medbay'];
-
-  $module_counter++;
+// $_MODULES["modules"]["medbay"] = array();
+// $module_counter = 0;
+// $parent_counter = "medBay";
+//
+// $_MODULES["modules"]["medbay"][$module_counter] = new moduleObj();
+// $_MODULES["modules"]["medbay"][$module_counter]->title = 'Medbay';
+//   $_MODULES["modules"]["medbay"][$module_counter]->url = $_CONFIG["header"].'/_modules/medbay/';
+//   $_MODULES["modules"]["medbay"][$module_counter]->icon  = 'fa fa-medkit';
+//   $_MODULES["modules"]["medbay"][$module_counter]->menu_level = '0';
+//   $_MODULES["modules"]["medbay"][$module_counter]->usergroups = ['medbay','finance'];
+//
+//   $module_counter++;
+//
+// ////////////////
+// $_MODULES["modules"]["medbay"][$module_counter] = new moduleObj();
+// $_MODULES["modules"]["medbay"][$module_counter]->title = 'Medical history';
+//   $_MODULES["modules"]["medbay"][$module_counter]->url = $_CONFIG["header"].'/_modules/medbay/medicalhistory.php';
+//   $_MODULES["modules"]["medbay"][$module_counter]->parent  = $parent_counter;
+//   $_MODULES["modules"]["medbay"][$module_counter]->usergroups = ['medbay'];
+//
+//   $module_counter++;
 
 
 ///// Settings ////////////////////////

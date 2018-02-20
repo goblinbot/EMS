@@ -16,7 +16,7 @@
     if(isset($_GET['key']) && $_GET['key'] != "") {
 
       // zet wapen op beschikbaar
-      $sql = "UPDATE ar_weapons SET status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$_GET['key'])."' LIMIT 1";
+      $sql = "UPDATE ems_ar_weapons SET status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$_GET['key'])."' LIMIT 1";
       $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
     }
