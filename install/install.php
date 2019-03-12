@@ -7,11 +7,6 @@
  
  if(!isset($_CONFIG)) die('Server not configured. Make sure you have _includes/config.global.php setup properly. An example config file can be found at _includes/config.global.php.example');
 
-  
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-
 // check if the connection to $UPLINK exists!!
 if(isset($UPLINK) && $UPLINK != "") {
 
