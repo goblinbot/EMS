@@ -1,8 +1,15 @@
+
+
 <?php
-if(!isset($_CONFIG)) die('No direct access allowed.');
+ include_once($_SERVER['DOCUMENT_ROOT'] . "/EMS/_includes/config.global.php");
+  include_once($_CONFIG["root"] . "/_includes/functions.global.php");
+  include_once($_CONFIG["root"] . "/_includes/includes.php");
+ 
+ if(!isset($_CONFIG)) die('Server not configured. Make sure you have _includes/config.global.php setup properly. An example config file can be found at _includes/config.global.php.example');
 
-
-
+  
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 
 // check if the connection to $UPLINK exists!!
@@ -22,7 +29,7 @@ if(isset($UPLINK) && $UPLINK != "") {
         `type` varchar(20) NOT NULL DEFAULT 'magazine',
         PRIMARY KEY (`id`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2400;";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       /*===========================================================================================*/
 
@@ -44,7 +51,7 @@ if(isset($UPLINK) && $UPLINK != "") {
         `foto` varchar(50) DEFAULT NULL,
         PRIMARY KEY (`id`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4510";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       /*===========================================================================================*/
 
@@ -60,7 +67,7 @@ if(isset($UPLINK) && $UPLINK != "") {
         PRIMARY KEY (`id`),
         KEY `weapon_id` (`weapon_id`)
       ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8100";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       /*===========================================================================================*/
 
@@ -75,7 +82,7 @@ if(isset($UPLINK) && $UPLINK != "") {
         `registerdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1571 ;";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       /*===========================================================================================*/
 
@@ -85,11 +92,11 @@ if(isset($UPLINK) && $UPLINK != "") {
         `title` varchar(24) NOT NULL,
         PRIMARY KEY (`group_id`)
       ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=310 ;";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       // insert the default usergroups here, if the table is empty.
       $sql = "SELECT * FROM usergroups LIMIT 1";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       if (mysqli_num_rows($res) < 1) {
         $sql = "INSERT INTO `usergroups` (`group_id`, `title`) VALUES
@@ -111,7 +118,7 @@ if(isset($UPLINK) && $UPLINK != "") {
           (326, 'eosinitiative'),
           (327, '808'),
           (328, '716');";
-        $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+        $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
       }
 
       /*===========================================================================================*/
@@ -126,7 +133,7 @@ if(isset($UPLINK) && $UPLINK != "") {
           KEY `group_id_2` (`group_id`),
           KEY `user_id` (`user_id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=55";
-      $res = $_WCMS_DBi->query($sql)or trigger_error(mysqli_error($_WCMS_DBi));
+      $res = $UPLINK->query($sql)or trigger_error(mysqli_error($UPLINK));
 
       // end!
       unset($sql);
