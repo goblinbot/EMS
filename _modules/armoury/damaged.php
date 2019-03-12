@@ -46,7 +46,7 @@
     </style>
 
     <?php
-      if($weaponArr['inactive'] != "") {
+      if(isset($weaponArr['inactive']) && $weaponArr['inactive'] != "") {
 
         $printresult = "<table class=\"table\">";
 

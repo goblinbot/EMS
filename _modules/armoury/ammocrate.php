@@ -64,9 +64,11 @@ if(!isset($_SESSION)) {
 
       $printresult .= "<br/><hr/><br/>";
 
+      $printbox = "";
+
       foreach($ammoArr AS $TITLE => $CATEGORIE) {
 
-        if(!isset($printbox) || $printbox == "") {
+        if($printbox === "") {
           $class = "tab on";
         } else {
           $class = "tab";
