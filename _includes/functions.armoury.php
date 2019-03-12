@@ -59,8 +59,8 @@ function ar_initWeapons($PARAM = null) {
   // loopt door de results heen
   if(mysqli_num_rows($result) > 0) {
 
-    $weaponArr['ranged'] = "";
-    $weaponArr['melee'] = "";
+    $weaponArr['ranged'] = array();
+    $weaponArr['melee'] = array();
 
     while($row = mysqli_fetch_assoc($result)){
 
