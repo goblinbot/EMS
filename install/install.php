@@ -133,9 +133,9 @@ if(isset($UPLINK) && $UPLINK != "") {
       // end!
       unset($sql);
       unset($res);
-
+    echo "Install complete. Table structure has been created. <br> <strong> !!!WARNING!!! </strong>:Please rename install/install.php to prevent abuse.";
   } else {
-
+    
     // uplink exists, but no connection.
     echo "No connection to database. Check if your settings are correct, and try again."; die();
 
