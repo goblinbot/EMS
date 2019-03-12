@@ -12,6 +12,7 @@ http://www.gubat.nl/ems/
 1. Edit _includes/config.global.php to include your MySQL DB Connection parameters and install folder name.
 2. Save the edited file as _includes/config.global.php
 3. Run the install.php script (assuming ems is a subfolder at the root of your site): http://www.example.com/ems/install/install.php
+4. rename install/install.php to install/install.php.bak to prevent abuse
 
 ## Basic functionality
 - Account registration / authentication.
