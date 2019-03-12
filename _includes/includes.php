@@ -71,8 +71,15 @@ $_MODULES["modules"]["armoury"][$module_counter]->title = 'Armoury';
     $_MODULES["modules"]["armoury"][$module_counter]->usergroups = ['armoury','finance'];
 
     $module_counter++;
-
-  /////////////
+   
+    /////////////
+   $_MODULES["modules"]["armoury"][$module_counter] = new moduleObj();
+   $_MODULES["modules"]["armoury"][$module_counter]->title = 'Add AmmoCrate';
+   $_MODULES["modules"]["armoury"][$module_counter]->parent  = $parent_counter;
+     $_MODULES["modules"]["armoury"][$module_counter]->url = $_CONFIG["header"].'/_modules/armoury/add_ammocrate.php';
+     $_MODULES["modules"]["armoury"][$module_counter]->usergroups = ['armoury','finance'];
+  
+    /////////////
   $_MODULES["modules"]["armoury"][$module_counter] = new moduleObj();
   $_MODULES["modules"]["armoury"][$module_counter]->title = 'Add Weapon';
   $_MODULES["modules"]["armoury"][$module_counter]->parent  = $parent_counter;
@@ -86,6 +93,15 @@ $_MODULES["modules"]["armoury"][$module_counter]->title = 'Armoury';
   $_MODULES["modules"]["armoury"][$module_counter]->title = 'Damage rep.';
   $_MODULES["modules"]["armoury"][$module_counter]->parent  = $parent_counter;
     $_MODULES["modules"]["armoury"][$module_counter]->url = $_CONFIG["header"].'/_modules/armoury/damaged.php';
+    $_MODULES["modules"]["armoury"][$module_counter]->usergroups = ['armoury','finance'];
+
+    $module_counter++;
+
+     /////////////
+  $_MODULES["modules"]["armoury"][$module_counter] = new moduleObj();
+  $_MODULES["modules"]["armoury"][$module_counter]->title = 'Add AmmoCrate';
+  $_MODULES["modules"]["armoury"][$module_counter]->parent  = $parent_counter;
+    $_MODULES["modules"]["armoury"][$module_counter]->url = $_CONFIG["header"].'/_modules/armoury/add_ammocrate.php';
     $_MODULES["modules"]["armoury"][$module_counter]->usergroups = ['armoury','finance'];
 
     $module_counter++;
