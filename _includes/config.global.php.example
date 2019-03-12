@@ -6,6 +6,7 @@
   $mPASS  =    ''; // password
   $mDB    =    ''; // databasename
 
+// You shouldn't need to change anything below this line apart from "header"
   $UPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
 
     // default config array
@@ -14,7 +15,7 @@
       "params",
       "modules",
       "includes" => array(),
-      "header" => "/ems"
+      "header" => "/EMS" // Change /EMS to the actual name of the directory your install is in.
     );
 
     // root defines na de hoofd config
