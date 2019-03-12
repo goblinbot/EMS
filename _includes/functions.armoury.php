@@ -11,7 +11,7 @@ function ar_initAmmoBox() {
   // loopt door de results heen
   if(mysqli_num_rows($result) > 0) {
 
-    $ammoArr['magazine'] = "";
+    $ammoArr['magazine'] = array();
 
     while($row = mysqli_fetch_assoc($result)){
 
