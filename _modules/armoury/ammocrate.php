@@ -92,6 +92,7 @@ if(!isset($_SESSION)) {
             . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
               . "<td>"
                 ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][name]\" value=\"".$VALUE['name']."\"/>"
+                ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
                 ."<input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][amount]\" required minimum=\"0\" value=\"".$VALUE['amount']."\"/>"
               ."</td>"
             . "<td style=\"width:50%;\">"
