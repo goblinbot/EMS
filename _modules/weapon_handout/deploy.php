@@ -2,8 +2,7 @@
 ini_set("allow_url_fopen", 1);
 $json = file_get_contents('http://localhost:5000/api/time');
 $obj = json_decode($json);
-echo $obj->iDay;
-echo $obj->iMonth;
+$ICDATE = $obj->iDay,'-',$obj->iMonth,'-',$obj->iYear;
 
 if(!isset($_SESSION)) {
   session_start();
@@ -98,7 +97,7 @@ if(!isset($_SESSION)) {
       }
     ?>
 
-    <h1>Deploy Weapon</h1>
+    <h1>'Deploy Weapon -',$ICDATE;</h1>
 
     <p>.</p>
 
