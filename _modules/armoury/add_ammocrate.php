@@ -99,7 +99,7 @@ if(!isset($_SESSION)) {
       </div>
       <div class="row">
         <select name="addAmmoCrate[type]" style="max-width: 15rem;">
-          <option value="ranged">Magazine</option>
+          <option value="Magazine">Magazine</option>
           <option value="explosives">Explosives</option>
           </select>
       </div>
