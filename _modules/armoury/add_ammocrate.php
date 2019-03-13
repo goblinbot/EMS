@@ -79,7 +79,7 @@ if(!isset($_SESSION)) {
         <input
           type="text" class="textinput" style="max-width: 15rem;"
           max="49" required="required" value="<?=$ADD['name']?>"
-          name="addAmmoCrate[name]" placeholder="20 round clip"
+          name="addAmmoCrate[name]" placeholder="20 round magazine"
         />
       </div>
 
