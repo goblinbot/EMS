@@ -122,7 +122,7 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[loan_date]" placeholder="" value="<?=$DateTime>" required="required" />
+          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[loan_date]" placeholder="" value="<?=$DateTime?>" required="required" />
         </div>
 
         <div class="row">
