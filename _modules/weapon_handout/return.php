@@ -6,6 +6,7 @@ if(!isset($_SESSION)) {
   include_once($_SERVER["DOCUMENT_ROOT"] . "/EMS/_includes/config.global.php");
   include_once($_CONFIG["root"] . "/_includes/functions.global.php");
   include_once($_CONFIG["root"] . "/_includes/includes.php");
+  include_once($_CONFIG["root"] . "/_includes/date.php");
   loginRequired();
 
   $_MODULES["current"]["module"] = "gear exchange";
@@ -124,7 +125,7 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <input type="text" class="textinput" style="max-width:25rem;" name="returnGear[return_date]" placeholder="31-01-240NT 23:59" value="" required="required" />
+          <input type="text" class="textinput" style="max-width:25rem;" name="returnGear[return_date]" placeholder="" value="<?=$DateTime?>" required="required" />
         </div>
 
         <div class="row">

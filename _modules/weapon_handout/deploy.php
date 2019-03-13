@@ -1,8 +1,5 @@
 <?php
 ini_set("allow_url_fopen", 1);
-$json = file_get_contents('http://localhost:5000/api/time');
-$obj = json_decode($json);
-$ICDATE = $obj->iDay,'-',$obj->iMonth,'-',$obj->iYear;
 
 if(!isset($_SESSION)) {
   session_start();
@@ -11,6 +8,7 @@ if(!isset($_SESSION)) {
   include_once($_SERVER["DOCUMENT_ROOT"] . "/EMS/_includes/config.global.php");
   include_once($_CONFIG["root"] . "/_includes/functions.global.php");
   include_once($_CONFIG["root"] . "/_includes/includes.php");
+  include_once($_CONFIG["root"] . "/_includes/date.php");
   loginRequired();
 
   $_MODULES["current"]["module"] = "gear exchange";
@@ -97,7 +95,7 @@ if(!isset($_SESSION)) {
       }
     ?>
 
-    <h1>'Deploy Weapon -',$ICDATE;</h1>
+    <h1>'Deploy Weapon';</h1>
 
     <p>.</p>
 
@@ -126,7 +124,7 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[loan_date]" placeholder="31-01-240NT 23:59" value="" required="required" />
+          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[loan_date]" placeholder="" value="<?=$DateTime>" required="required" />
         </div>
 
         <div class="row">
