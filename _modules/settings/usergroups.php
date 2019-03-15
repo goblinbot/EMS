@@ -94,6 +94,7 @@ if(!isset($_SESSION)) {
               . "<td style=\"max-width: 4rem;\">".$VALUE['id']."</td>"
               . "<td>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
+              ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][fullname]\" value=\"".$VALUE['fullname']."\"/>"
                 /* ."<select name=\"updateUsergroups[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>
                 <option value="312">Admin</option>
                 <option value="318">Armoury</option>
