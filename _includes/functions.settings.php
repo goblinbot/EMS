@@ -30,7 +30,7 @@ function ar_initUsergroups() {
           $userArr[strtolower($row['type'])][$row['id']][$KEY] = EMS_echo($VALUE);
 
         }//foreach
-      }*/// if != ""
+      } /// if != ""
 
     } //while results
   } // if results hoger dan 0
