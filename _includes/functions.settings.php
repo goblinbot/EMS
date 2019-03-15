@@ -5,13 +5,13 @@ function ar_initUsergroups() {
   $userArr = array();
 
   // haalt de gebruikersgroepstoewijzingen op
-  $sql = "SELECT id,group_id_user_id FROM user_koppeling ORDER BY name ASC";
+  $sql = "SELECT id,group_id,user_id FROM user_koppeling ORDER BY name ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen
   if(mysqli_num_rows($result) > 0) {
 
-    $userArr['magazine'] = array();
+    $userArr = array();
 
     while($row = mysqli_fetch_assoc($result)){
 
