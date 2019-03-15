@@ -46,6 +46,7 @@ if(!isset($_SESSION)) {
 
 
   $userArr = ar_initUsergroups();
+  return $userArr;
   include_once($_CONFIG["root"] . "/header.php");
 ?>
 <div class="main item">
