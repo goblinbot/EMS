@@ -1,4 +1,14 @@
 <?php
+// Process form
+
+// If processing was successful, redirect
+if($success)
+{
+
+// Replace your redirection URL here
+    header("Location: ammocrate.php");
+}
+
 if(!isset($_SESSION)) {
   session_start();
 }
