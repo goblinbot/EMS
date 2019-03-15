@@ -78,7 +78,7 @@ if(!isset($_SESSION)) {
         $printresult .= "<a onclick=\"activateTab('".$TITLE."');\" class=\"button button-tab\"><i class=\"fa fa-angle-down\"></i>&nbsp;".$TITLE."</a>";
 
         // de tables bouwen.
-        $printbox .= "<div id=\"tab_".$TITLE."\" class=\"ammobox $class\">";
+//        $printbox .= "<div id=\"tab_".$TITLE."\" class=\"ammobox $class\">";
         // $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
