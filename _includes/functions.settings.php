@@ -19,7 +19,7 @@ function ar_initUsergroups() {
         foreach($row AS $KEY => $VALUE) {
           //$VALUE = strtolower($VALUE);
           // VOLLEDIGE DATA ->CATEGORIE ->UNIEKE ID ->ALLE WAARDES
-          $userArr[strtolower($row['group_id'])][$row['id']][$KEY] = EMS_echo($VALUE);
+          $userArr[$row['group_id'][$row['id']][$KEY]] = EMS_echo($VALUE);
 
         //}//foreach
       } /// if != ""
