@@ -126,6 +126,10 @@ if(!isset($_SESSION)) {
       </div>
 
     </div>
+    <!---- Including PHP File Here ---->
+      <?php
+        include "return_to_ammocrate.php";
+      ?>
     </form>
 
   </div>
