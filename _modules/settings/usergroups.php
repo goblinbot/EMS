@@ -79,7 +79,7 @@ if(!isset($_SESSION)) {
 
         // de tables bouwen.
          $printbox .= "<div id=\"tab_".$TITLE."\" class=\"ammobox $class\">"; 
-         $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
+         //$printresult .= "<h3 class=\"\">".$TITLE."</h3>";
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
                         ."<th>Name</th>"
