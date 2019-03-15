@@ -91,7 +91,8 @@ if(!isset($_SESSION)) {
         foreach($CATEGORIE AS $KEY => $VALUE) {
 
           $printbox .= "<tr>"
-              . "<td style=\"max-width: 4rem;\">".$VALUE['id']."</td>"
+              //. "<td style=\"max-width: 4rem;\">".$VALUE['id']."</td>"
+              . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
               . "<td>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][fullname]\" value=\"".$VALUE['fullname']."\"/>"
