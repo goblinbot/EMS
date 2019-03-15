@@ -106,7 +106,7 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[barcode]" value="<?=$barcode?>" placeholder="A451E" required="required" max="10" />
+          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[barcode]" value="<?=$barcode?>" placeholder="A451E" required="required" max="10" autofocus/>
         </div>
 
         <div class="row">
