@@ -5,7 +5,7 @@ function ar_initUsergroups() {
   $userArr = array();
 
   // haalt de gebruikersgroepstoewijzingen op
-  $sql = "SELECT user_koppeling.id,user_koppeling.group_id,user_koppeling.user_id,t1.fullname FROM user_koppeling join users t1 on t1.id = user_koppeling.user_id ORDER by user_koppeling.id ASC";
+  $sql = "SELECT user_koppeling.id,user_koppeling.group_id,t1.id,t1.fullname FROM user_koppeling right join users t1 on t1.id = user_koppeling.user_id ORDER by user_koppeling.id ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen
