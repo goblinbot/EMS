@@ -83,6 +83,12 @@ if(!isset($_SESSION)) {
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
                         ."<tr class=\"\"><th colspan=\"3\"><h3>".$TITLE."</h3></th></tr>"
+                        ."<th>id</th>"
+                        ."<th>Name</th>"
+                        ."<th>Quantity</th>"
+                        ."<th>Description</th>"
+                        ."<th>&nbsp;</th>"
+                      ."</tr>"
                       ."</thead>";
 
         foreach($CATEGORIE AS $KEY => $VALUE) {
