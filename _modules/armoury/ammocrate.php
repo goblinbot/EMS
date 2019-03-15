@@ -82,7 +82,7 @@ if(!isset($_SESSION)) {
         // $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
-                        ."<tr class=\"\"><th colspan=\"3\"><h3>".$TITLE."</h3></th></tr>"
+                        //."<tr class=\"\"><th colspan=\"3\"><h3>".$TITLE."</h3></th></tr>"
                         ."<th>id</th>"
                         ."<th>Name</th>"
                         ."<th>Quantity</th>"
