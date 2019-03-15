@@ -97,9 +97,9 @@ if(!isset($_SESSION)) {
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][fullname]\" value=\"".$VALUE['fullname']."\"/>"
               ."<select name=\"updateUsergroups[".$KEY."][group_id]\" value=\"".$VALUE['group_id']."\"/>
-                <option value=\"312\">Admin<\/option>
-                <option value=\"318\">Armoury<\/option>
-                <\/select>"           
+                <option value=\"312\">Admin</option>
+                <option value=\"318\">Armoury</option>
+                </select>"           
               ."</td>"
             . "</tr>";
         }
