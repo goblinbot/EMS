@@ -9,8 +9,6 @@
   include_once($_CONFIG["root"] . "/header.php");
 //Check for DB Connectivity
   if ($UPLINK->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-
   <div class="alert-dialog">
   <h2><strong><i class="fa fa-info-circle"></i>&nbsp;Database Connection Failed. Please contact your system administrator.</strong></h2>
   <hr/>
