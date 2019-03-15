@@ -68,7 +68,7 @@ if(!isset($_SESSION)) {
 
       $printbox = "";
 
-      /* foreach($userArr AS $TITLE => $CATEGORIE) {
+       foreach($userArr AS $TITLE => $CATEGORIE) {
 
         if($printbox === "") {
           $class = "tab on";
@@ -78,7 +78,7 @@ if(!isset($_SESSION)) {
 
         // tabjes maken voor top
         $printresult .= "<a onclick=\"activateTab('".$TITLE."');\" class=\"button button-tab\"><i class=\"fa fa-angle-down\"></i>&nbsp;".$TITLE."</a>";
-*/
+
         // de tables bouwen.
         $printbox .= "<div id=\"tab_".$TITLE."\" class=\"ammobox $class\">";
         // $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
@@ -95,7 +95,7 @@ if(!isset($_SESSION)) {
           $printbox .= "<tr>"
               . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
               . "<td>"
-                ."<input type=\"hidden\" class=\"hidden\" name=\"updateUsergroups[".$KEY."][name]\" value=\"".$VALUE['name']."\">"
+              ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][name]\" value=\"".$VALUE['name']."\"/>"
                 /* ."<select name=\"updateUsergroups[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>
                 <option value="312">Admin</option>
                 <option value="318">Armoury</option>
