@@ -1,4 +1,6 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 // global functions
   include_once($_CONFIG["root"] . "/_includes/functions.armoury.php");
   include_once($_CONFIG["root"] . "/_includes/functions.settings.php");
