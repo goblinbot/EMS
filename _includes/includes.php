@@ -182,7 +182,6 @@ $_MODULES["modules"]["settings"][$module_counter]->title = 'Settings';
   $_MODULES["modules"]["settings"][$module_counter]->menu_level = '0';
   $_MODULES["modules"]["settings"][$module_counter]->usergroups = ['admin'];
 
-  $parent_counter = $module_counter;
   $module_counter++;
 
 ////////////////
