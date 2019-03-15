@@ -1,7 +1,7 @@
 <?php
 // global functions
   include_once($_CONFIG["root"] . "/_includes/functions.armoury.php");
-
+  include_once($_CONFIG["root"] . "/_includes/functions.settings.php");
 function loginRequired() {
   global $_CONFIG;
 
