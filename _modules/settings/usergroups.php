@@ -92,7 +92,7 @@ if(!isset($_SESSION)) {
 
           $printbox .= "<tr>"
               //. "<td style=\"max-width: 4rem;\">".$VALUE['id']."</td>"
-              . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
+              . "<td style=\"max-width: 4rem;\">".$VALUE['fullname']."</td>"
               . "<td>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][fullname]\" value=\"".$VALUE['fullname']."\"/>"
