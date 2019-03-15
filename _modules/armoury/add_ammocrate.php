@@ -1,13 +1,4 @@
 <?php
-// Process form
-
-// If processing was successful, redirect
-if($success)
-{
-
-// Replace your redirection URL here
-    header("Location: ammocrate.php");
-}
 
 if(!isset($_SESSION)) {
   session_start();
@@ -43,7 +34,7 @@ if(!isset($_SESSION)) {
           );";
       $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
-      header("location: index.php?ref=updated");
+      header("location: ammocrate.php?ref=updated");
       exit();
 
     }
@@ -126,10 +117,6 @@ if(!isset($_SESSION)) {
       </div>
 
     </div>
-    <!---- Including PHP File Here ---->
-      <?php
-        include "return_to_ammocrate.php";
-      ?>
     </form>
 
   </div>
