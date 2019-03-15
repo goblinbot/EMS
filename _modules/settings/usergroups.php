@@ -96,10 +96,10 @@ if(!isset($_SESSION)) {
               . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
               . "<td>"
                 ."<input type=\"hidden\" class=\"hidden\" name=\"updateUsergroups[".$KEY."][name]\" value=\"".$VALUE['name']."\">"
-                ."<select name=\"updateUsergroups[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>
+                /* ."<select name=\"updateUsergroups[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>
                 <option value="312">Admin</option>
                 <option value="318">Armoury</option>
-                </select>"                
+                </select>"           */
               ."</td>"
             . "</tr>";
         }
