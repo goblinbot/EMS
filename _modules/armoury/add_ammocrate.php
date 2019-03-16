@@ -15,7 +15,6 @@ if(!isset($_SESSION)) {
 
 
   if(isset($_POST['addAmmoCrate']) && $_POST['addAmmoCrate'] !="") {
-    // echo"<pre style=\"color:white;\">";var_dump($_POST['addAmmoCrate']);echo"</pre>";
 
     $ADD = $_POST['addAmmoCrate'];
 
@@ -25,12 +24,12 @@ if(!isset($_SESSION)) {
 
       $sql =
       "INSERT INTO ar_ammoboxes
-      (name,amount,description,type
+      (ammobox_type,variant,description,amount
         ) VALUES (
-          '".mysqli_real_escape_string($UPLINK,$ADD['name'])."'
-          ,'".mysqli_real_escape_string($UPLINK,$ADD['amount'])."'
+          '".mysqli_real_escape_string($UPLINK,$ADD['ammobox_type'])."'
+          ,'".mysqli_real_escape_string($UPLINK,$ADD['variant'])."'
           ,'".mysqli_real_escape_string($UPLINK,$ADD['description'])."'
-          ,'".mysqli_real_escape_string($UPLINK,$ADD['type'])."'
+          ,'".mysqli_real_escape_string($UPLINK,$ADD['amount'])."'
           );";
       $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
@@ -42,13 +41,17 @@ if(!isset($_SESSION)) {
   else {
 
     $ADD = array();
-    $ADD['name'] = '';
-    $ADD['amount'] = '';
+    $ADD['ammobox_type'] = '';
+    $ADD['variant'] = '';
     $ADD['description'] = '';
-
+    $ADD['amount'] = '';
   }
 
 
+  $ammoArr = ar_initAmmoBox();
+  $ammoboxtypes = ar_initAmmoBoxTypes();
+  $ammoboxcategories = ar_initAmmoBoxCategories();
+  $ammoboxvariants = ar_initAmmoBoxVariants();
 
   include_once($_CONFIG["root"] . "/header.php");
 ?>
@@ -72,44 +75,53 @@ if(!isset($_SESSION)) {
       <div class="row">
         <hr/>
       </div>
-
       <div class="row">
-        <label>Name</label>
+    </div>
+      <div class="row">
+        <label>Type</label>&nbsp;
+        <select name="addAmmoCrate[category]" style="max-width: 15rem;">
+          <?php
+            foreach($ammoboxcategories as $ammoboxtype) {
+              echo "<option value=\"{$ammoboxtype['type']}\">{$ammoboxtype['type']}</option>"; 
+            };
+          ?>
+        </select>
       </div>
       <div class="row">
-        <input
-          type="text" class="textinput" style="max-width: 15rem;"
-          max="49" required="required" value="<?=$ADD['name']?>"
-          name="addAmmoCrate[name]" placeholder="20 round magazine"
-        />
+        <label>Name</label>&nbsp;
+        <select name="addAmmoCrate[ammobox_type]" style="max-width: 15rem;">
+          <?php
+            foreach($ammoboxtypes as $ammoboxtype) {
+              echo "<option value=\"{$ammoboxtype['typeid']}\">{$ammoboxtype['name']}</option>"; 
+            };
+          ?>
+        </select>
       </div>
-
+      
       <div class="row">
-        <label>Amount</label>
+        <label>Variant</label>&nbsp;
+        <select name="addAmmoCrate[variant]" style="max-width: 15rem;">
+          <?php
+            foreach($ammoboxvariants as $ammoboxvariant) {
+              echo "<option value=\"{$ammoboxvariant['id']}\">{$ammoboxvariant['name']}</option>"; 
+            };
+          ?>
+        </select>
       </div>
-      <div class="row">
-        <input
-          type="text" class="textinput" style="max-width: 15rem;"
-          max="24" required="required" value="<?=$ADD['amount']?>"
-          name="addAmmoCrate[amount]" placeholder="50"
-        />
-      </div>
-
-      <div class="row">
-        <label>Type</label>
-      </div>
-      <div class="row">
-        <select name="addAmmoCrate[type]" style="max-width: 15rem;">
-          <option value="Magazine">Magazine</option>
-          <option value="explosives">Explosives</option>
-          </select>
-      </div>
- 
       <div class="row">
         <label>Description</label>
       </div>
       <div class="row">
         <textarea name="addAmmoCrate[description]" placeholder="optional description"></textarea>
+      </div>
+
+      <div class="row">
+        <label>Amount</label>&nbsp;
+        <input
+        type="number" class="numbers" style="max-width: 15rem;"
+           required="required" value="<?=$ADD['amount']?>"
+          name="addAmmoCrate[amount]" placeholder="50"
+        />
       </div>
 
       <div class="row">

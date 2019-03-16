@@ -7,6 +7,7 @@ function ar_initAmmoBox() {
   // haalt de inventory op
   $sql = "SELECT ar_ammoboxes.id as id,
             t1.type as type,
+            ar_ammoboxes.ammobox_type as ammobox_type,
             t1.name as name,
             t1.capacity as capacity, 
             v1.name as variant,
@@ -45,6 +46,42 @@ function ar_initAmmoBox() {
   } // if results hoger dan 0
 
   return $ammoArr;
+}
+function ar_initAmmoBoxCategories() {
+  global $_CONFIG, $UPLINK;
+
+  $ammotypeArr = array();
+
+  $sql = "SELECT DISTINCT type FROM ar_ammoboxes_types;";
+  $result = $UPLINK->query($sql);
+  $ammotypeArr = $result;
+
+  return $ammotypeArr;
+}
+
+function ar_initAmmoBoxTypes() {
+  global $_CONFIG, $UPLINK;
+
+  $ammotypeArr = array();
+
+  $sql = "SELECT ar_ammoboxes_types.id as typeid, ar_ammoboxes_types.name, ar_ammoboxes_types.capacity
+  FROM ar_ammoboxes_types";
+  $result = $UPLINK->query($sql);
+  $ammotypeArr = $result;
+
+  return $ammotypeArr;
+}
+
+function ar_initAmmoBoxVariants() {
+  global $_CONFIG, $UPLINK;
+
+  $ammotypeArr = array();
+
+  $sql = "SELECT * FROM ar_ammoboxes_variants";
+  $result = $UPLINK->query($sql);
+  $ammotypeArr = $result;
+
+  return $ammotypeArr;
 }
 
 function ar_initWeapons($PARAM = null) {
