@@ -55,7 +55,7 @@ if(!isset($_SESSION)) {
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
             // zet wapen op onbeschikbaar
-            $sql = "UPDATE ar_weapons SET loan_status = 'true', status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
+            $sql = "UPDATE ar_weapons SET loan_status = 'true', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
             header("location: currently_deployed.php?ref=updated");

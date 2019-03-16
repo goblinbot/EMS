@@ -50,7 +50,7 @@ if(!isset($_SESSION)) {
 
 
           // zet wapen op beschikbaar
-          $sql = "UPDATE ar_weapons SET loan_status = 'false', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
+          $sql = "UPDATE ar_weapons SET loan_status = 'false', status = 'In armoury' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
           $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
           header("location: history.php?ref=updated");
