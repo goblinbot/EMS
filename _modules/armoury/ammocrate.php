@@ -82,7 +82,7 @@ if(!isset($_SESSION)) {
         // display table for currently selected tab, and setup headers
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
-                        ."<th>ID</th>"
+        ."<th colspan=\"\">#".$TITLE."</th>"
                         ."<th>Name</th>"
                         ."<th>Capacity</th>"
                         ."<th>Variant</th>"

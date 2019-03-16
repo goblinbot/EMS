@@ -50,7 +50,6 @@ if(!isset($_SESSION)) {
   <div class="container">
 
     <h1>Armoury: Weapon inventory</h1>
-    &nbsp;&nbsp;<a href="add_weapon.php?ref=crate" class="button button-default"><i class="fa fa-plus-square"></i>&nbsp;New</a>
     <hr/>
 
     <?php
@@ -63,6 +62,7 @@ if(!isset($_SESSION)) {
       
 
       $printbox = "";
+      $printresult .= "&nbsp;&nbsp;<a href=\"add_weapon.php?ref=crate\" class=\"button button-tab\"><i class=\"fa fa-plus-square\"></i>&nbsp;New</a>&nbsp;&nbsp;";
       foreach($weaponArr AS $TITLE => $CATEGORIE) {
 
         if($printbox === "") {
@@ -73,7 +73,6 @@ if(!isset($_SESSION)) {
 
         // tabjes maken voor top
         $printresult .= "<a onclick=\"activateTab('".$TITLE."');\" class=\"button button-tab\"><i class=\"fa fa-angle-down\"></i>&nbsp;".$TITLE."</a>";
-
         // de tables bouwen.
         $printbox .= "<div id=\"tab_".$TITLE."\" class=\"weapondbbox $class\">";
         $printbox .= "<table class=\"table\">";
