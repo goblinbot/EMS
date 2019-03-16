@@ -31,9 +31,9 @@ function ar_initUsergroups() {
         //}//foreach
       } /// if != ""
 
-    } //while results
+    } //while results */
   } // if results hoger dan 0
 
   return $userArr;
-}*/
+}
 ?>
