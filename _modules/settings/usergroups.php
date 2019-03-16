@@ -21,9 +21,9 @@ if(!isset($_SESSION)) {
 
       foreach($_POST['updateUsergroups'] AS $ID => $Usergroupsupdate) {
 
-        if(is_numeric($Usergroupsupdate['group_id']) && is_numeric($ID)) {
+        if(is_numeric($Usergroupsupdate['groupid']) && is_numeric($ID)) {
           $sql = "UPDATE user_koppeling
-                  SET user_koppeling = '".mysqli_real_escape_string($UPLINK,(int)$Usergroupsupdate['group_id'])."'
+                  SET user_koppeling = '".mysqli_real_escape_string($UPLINK,(int)$Usergroupsupdate['groupid'])."'
                     WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'
                     LIMIT 1";
           $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
@@ -96,7 +96,7 @@ if(!isset($_SESSION)) {
               . "<td>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
               ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][fullname]\" value=\"".$VALUE['fullname']."\"/>"
-              ."<select name=\"updateUsergroups[".$KEY."][group_id]\" value=\"".$VALUE['group_id']."\"/>
+              ."<select name=\"updateUsergroups[".$KEY."][groupid]\" value=\"".$VALUE['groupid']."\"/>
                 <option value=\"312\">Admin</option>
                 <option value=\"318\">Armoury</option>
                 </select>"           
