@@ -13,12 +13,12 @@ function ar_initUsergroups() {
 
     $userArr = array();
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    /* while ($row = mysqli_fetch_assoc($result)) {
       echo $row["userid"];
       echo $row["fullname"];
       echo $row["groupid"];
       echo $row["id"];
-  }
+  }*/
      while($row = mysqli_fetch_assoc($result)){
 
 
@@ -26,7 +26,7 @@ function ar_initUsergroups() {
         foreach($row AS $KEY => $VALUE) {
           //$VALUE = strtolower($VALUE);
           // VOLLEDIGE DATA ->CATEGORIE ->UNIEKE ID ->ALLE WAARDES
-          $userArr[$row['groupid'][$row['id'][$row['userid'][$row['fullname']][$KEY] = EMS_echo($VALUE);
+          $userArr[$row['groupid']][$row['id']][$row['userid']][$row['fullname']][$KEY] = EMS_echo($VALUE);
 
         }//foreach
       } /// if != ""
