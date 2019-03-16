@@ -19,19 +19,19 @@ function ar_initUsergroups() {
       echo $row["groupid"];
       echo $row["id"];
   }
-    /* while($row = mysqli_fetch_assoc($result)){
+     while($row = mysqli_fetch_assoc($result)){
 
 
-      //if(isset($row['group_id']) && $row['group_id'] != "") {
+      if(isset($row['group_id']) && $row['group_id'] != "") {
         foreach($row AS $KEY => $VALUE) {
           //$VALUE = strtolower($VALUE);
           // VOLLEDIGE DATA ->CATEGORIE ->UNIEKE ID ->ALLE WAARDES
-          $userArr[strtolower($row['group_id'])][$row['id']][$KEY] = EMS_echo($VALUE);
+          $userArr[$row['groupid'][$row['id'][$row['userid'][$row['fullname']][$KEY] = EMS_echo($VALUE);
 
-        //}//foreach
+        }//foreach
       } /// if != ""
 
-    } //while results */
+    } //while results 
   } // if results hoger dan 0
 
   return $userArr;
