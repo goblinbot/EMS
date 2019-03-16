@@ -155,12 +155,12 @@ function ar_getLoans($PARAMS = null) {
     $WHERE = "";
   }
 
-  $sql = "SELECT lo.id, we.barcode, we.label, we.model, we.type, we.status, lo.loaned_to, lo.loan_status, lo.loan_date, lo.return_date, lo.description
-    FROM ar_loans_weapon AS lo
-    INNER JOIN ar_weapons AS we
-    ON lo.weapon_id = we.id
-    ".$WHERE."
-    ORDER BY id DESC";
+  $sql = "SELECT we.barcode, we.label, we.model, we.type, we.status,lo.id,weapon_id,c1.character_name as loaned_to, lo.loan_status,lo.loan_date, lo.return_date,lo.description,c1.ICC_number,c1.card_id 
+FROM ems.ar_loans_weapon as lo
+  INNER JOIN ems.ar_weapons AS we ON lo.weapon_id = we.id
+  join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
+       ".$WHERE."
+      ORDER BY id DESC;";
   $result = $UPLINK->query($sql);
 
   if(mysqli_num_rows($result) > 0) {

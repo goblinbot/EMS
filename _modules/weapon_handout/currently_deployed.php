@@ -79,7 +79,7 @@ if(!isset($_SESSION)) {
             . "<td>".$LOAN['barcode']."</td>"
             . "<td>".$LOAN['model']."</td>"
             . "<td>".$LOAN['type']."</td>"
-            . "<td><input type=\"text\" class=\"textinput\" name=\"updateDeployed[".$KEY."][loaned_to]\" value=\"".$LOAN['loaned_to']."\" /></td>"
+            . "<td>".$LOAN['loaned_to']."</td>"
             . "<td>".$LOAN['loan_date']."</td>"
             . "<td><input type=\"text\" class=\"textinput\" name=\"updateDeployed[".$KEY."][description]\" value=\"".$LOAN['description']."\" /></td>"
             . "<td class=\"text-right\">"

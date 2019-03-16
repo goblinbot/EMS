@@ -5,9 +5,11 @@
   $mUSER  =    ''; // username
   $mPASS  =    ''; // password
   $mDB    =    ''; // databasename
+  $cDB    =    ''; // optional - character db (for use with eos-chargen)
 
 // You shouldn't need to change anything below this line apart from "header"
   $UPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
+  $CharGenUPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
 
     // default config array
     $_CONFIG = array(

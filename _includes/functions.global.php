@@ -235,3 +235,17 @@ function validateCurrentUser($usergroups = null) {
   return $result;
 
 }
+function ar_initECCCharacters() {
+  global $_CONFIG, $CharGenUPLINK;
+
+  $characterArr = array();
+
+  $sql = "SELECT characterID, character_name 
+          FROM joomla.ecc_characters 
+          WHERE sheet_status <> 0 AND character_name IS NOT NULL 
+          ORDER by character_name ASC;";
+  $result = $CharGenUPLINK->query($sql);
+  $characterArr = $result;
+
+  return $characterArr;
+}

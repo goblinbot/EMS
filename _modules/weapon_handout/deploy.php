@@ -81,6 +81,7 @@ if(!isset($_SESSION)) {
 
   // $weaponArr = ar_initWeapons();
   include_once($_CONFIG["root"] . "/header.php");
+  $characters = ar_initECCCharacters();
 ?>
 <div class="main item">
   <div class="container">
@@ -114,7 +115,13 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[loaned_to]" placeholder="Mayumi Magalit Subal" value="" required="required" max="50" />
+        <select name="deployGear[loaned_to]" style="max-width: 15rem;" required="required">
+          <?php
+            foreach($characters as $character) {
+              echo "<option value=\"{$character['characterID']}\">{$character['character_name']}</option>"; 
+            };
+          ?>
+        </select>
         </div>
 
         <div class="row">
