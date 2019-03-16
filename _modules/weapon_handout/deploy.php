@@ -43,7 +43,7 @@ if(!isset($_SESSION)) {
           if(isset($POSTDATA['loan_date']) && $POSTDATA['loan_date'] != "") {
 
             $sql =
-            "INSERT INTO ar_loans
+            "INSERT INTO ar_loans_weapon
             (weapon_id, loaned_to, loan_status, loan_date, description
               ) VALUES (
                 '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."'

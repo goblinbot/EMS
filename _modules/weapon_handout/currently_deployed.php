@@ -20,7 +20,7 @@ if(!isset($_SESSION)) {
       foreach($_POST['updateDeployed'] AS $ID => $update) {
 
         if(is_numeric($ID)) {
-          $sql = "UPDATE ar_loans
+          $sql = "UPDATE ar_loans_weapon
                   SET loaned_to = '".mysqli_real_escape_string($UPLINK,$update['loaned_to'])."'
                     , description = '".mysqli_real_escape_string($UPLINK,$update['description'])."'
                     WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'

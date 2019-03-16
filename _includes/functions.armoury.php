@@ -156,7 +156,7 @@ function ar_getLoans($PARAMS = null) {
   }
 
   $sql = "SELECT lo.id, we.barcode, we.label, we.model, we.type, we.status, lo.loaned_to, lo.loan_status, lo.loan_date, lo.return_date, lo.description
-    FROM ar_loans AS lo
+    FROM ar_loans_weapon AS lo
     INNER JOIN ar_weapons AS we
     ON lo.weapon_id = we.id
     ".$WHERE."

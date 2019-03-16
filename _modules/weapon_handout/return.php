@@ -32,7 +32,7 @@ if(!isset($_SESSION)) {
 
         $WEAPON_ID = $result;
 
-        $sql = "SELECT id FROM ar_loans WHERE weapon_id = '".$result."' AND loan_status = 'out' ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT id FROM ar_loans_weapon WHERE weapon_id = '".$result."' AND loan_status = 'out' ORDER BY id DESC LIMIT 1";
         $result = $UPLINK->query($sql);
 
         if(mysqli_num_rows($result) > 0) {
@@ -40,7 +40,7 @@ if(!isset($_SESSION)) {
           $result = mysqli_fetch_assoc($result)['id'];
 
           // zet de loan op voltooid
-          $sql = "UPDATE ar_loans
+          $sql = "UPDATE ar_loans_weapon
                   SET return_date = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['return_date'])."'
                     , description = '".mysqli_real_escape_string($UPLINK,$_POST['returnGear']['description'])."'
                     , loan_status = 'done'

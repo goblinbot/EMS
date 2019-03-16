@@ -51,7 +51,7 @@ if(isset($UPLINK) && $UPLINK != "") {
       /*===========================================================================================*/
 
       // Create the 'loans' table. You can compare this table to a 'sales history field.'
-      $sql = "CREATE TABLE IF NOT EXISTS `ar_loans` (
+      $sql = "CREATE TABLE IF NOT EXISTS `ar_loans_weapon` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `weapon_id` int(11) NOT NULL,
         `loaned_to` varchar(50) NOT NULL,
