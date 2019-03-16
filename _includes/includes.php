@@ -171,7 +171,7 @@ $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Gear exchange';
 
 
 ///// Settings ////////////////////////
-$_MODULES["modules"]["settings"] = array();
+/* $_MODULES["modules"]["settings"] = array();
 $module_counter = 0;
 $parent_counter = "settings";
 
@@ -192,5 +192,5 @@ $_MODULES["modules"]["settings"][$module_counter]->title = 'Usergroups';
   $_MODULES["modules"]["settings"][$module_counter]->usergroups = ['admin'];
 
   $module_counter++;
-
+*/
 //end

@@ -5,7 +5,16 @@ function ar_initAmmoBox() {
   $ammoArr = array();
 
   // haalt de inventory op
-  $sql = "SELECT id,name,type,amount,description FROM ar_ammoboxes ORDER BY name ASC";
+  $sql = "SELECT ar_ammoboxes.id as id,
+            ar_ammoboxes.type as type,
+            t1.name as name,
+            t1.capacity as capacity, 
+            v1.name as variant,
+            ar_ammoboxes.description as description,
+            ar_ammoboxes.amount as qty FROM ar_ammoboxes 
+            join ar_ammoboxes_types t1 on t1.id = ar_ammoboxes.ammobox_type 
+            join ar_ammoboxes_variants v1 on v1.id = ar_ammoboxes.variant
+             ORDER BY name ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen

@@ -21,11 +21,11 @@ if(!isset($_SESSION)) {
 
       foreach($_POST['updateInventory'] AS $ID => $inventoryupdate) {
 
-        if(is_numeric($inventoryupdate['amount']) && is_numeric($ID)) {
+        if(is_numeric($inventoryupdate['qty']) && is_numeric($ID)) {
           $sql = "UPDATE ar_ammoboxes
-                  SET amount = '".mysqli_real_escape_string($UPLINK,(int)$inventoryupdate['amount'])."'
-                    , description = '".mysqli_real_escape_string($UPLINK,$inventoryupdate['description'])."'
-                    WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'
+                  SET ar_ammoboxes.amount = '".mysqli_real_escape_string($UPLINK,(int)$inventoryupdate['qty'])."'
+                    , ar_ammoboxes.description = '".mysqli_real_escape_string($UPLINK,$inventoryupdate['description'])."'
+                    WHERE ar_ammoboxes.id = '".mysqli_real_escape_string($UPLINK,$ID)."'
                     LIMIT 1";
           $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
         }
@@ -82,10 +82,12 @@ if(!isset($_SESSION)) {
         // $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
-                        ."<th>id</th>"
+                        ."<th>ID</th>"
                         ."<th>Name</th>"
-                        ."<th>Quantity</th>"
+                        ."<th>Capacity</th>"
+                        ."<th>Variant</th>"
                         ."<th>Description</th>"
+                        ."<th>Quantity</th>"
                         ."<th>&nbsp;</th>"
                       ."</tr>"
                       ."</thead>";
@@ -93,15 +95,16 @@ if(!isset($_SESSION)) {
         foreach($CATEGORIE AS $KEY => $VALUE) {
 
           $printbox .= "<tr>"
-          . "<td style=\"max-width: 4rem;\">".$VALUE['id']."</td>"
-            . "<td style=\"max-width: 4rem;\">".$VALUE['name']."</td>"
-              . "<td>"
-                ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][name]\" value=\"".$VALUE['name']."\"/>"
-                ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"
-                ."<input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][amount]\" required minimum=\"0\" value=\"".$VALUE['amount']."\"/>"
+          . "<td>".$VALUE['id']."</td>"
+            ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"  
+          . "<td>".$VALUE['name']."</td>"
+            ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][name]\" value=\"".$VALUE['name']."\"/>"  
+          . "<td>".$VALUE['capacity']."</td>"
+          . "<td>".$VALUE['variant']."</td>"                
+          . "<td> <input type=\"text\" class=\"textinput\" name=\"updateInventory[".$KEY."][description]\" value=\"".$VALUE['description']."\" \>"
               ."</td>"
             . "<td style=\"width:50%;\">"
-            .   "<input type=\"text\" class=\"textinput\" name=\"updateInventory[".$KEY."][description]\" value=\"".$VALUE['description']."\" \>"
+            ."<input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][qty]\" required minimum=\"0\" value=\"".$VALUE['qty']."\"/>"
             . "</td>"
           . "</tr>";
         }
