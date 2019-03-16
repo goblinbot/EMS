@@ -78,15 +78,16 @@ if(!isset($_SESSION)) {
       <div class="row">
     </div>
       <div class="row">
-        <label>Type</label>&nbsp;
+     <label>Type</label>&nbsp;
         <select name="addAmmoCrate[category]" style="max-width: 15rem;">
-          <?php
+         <?php
             foreach($ammoboxcategories as $ammoboxtype) {
               echo "<option value=\"{$ammoboxtype['type']}\">{$ammoboxtype['type']}</option>"; 
             };
-          ?>
+          ?> 
         </select>
-      </div>
+      </div> 
+    
       <div class="row">
         <label>Name</label>&nbsp;
         <select name="addAmmoCrate[ammobox_type]" style="max-width: 15rem;">
