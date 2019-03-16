@@ -79,7 +79,7 @@ if(!isset($_SESSION)) {
 
         // de tables bouwen.
         $printbox .= "<div id=\"tab_".$TITLE."\" class=\"ammobox $class\">";
-        // $printresult .= "<h3 class=\"\">".$TITLE."</h3>";
+        // display table for currently selected tab, and setup headers
         $printbox .= "<table class=\"table\">";
         $printbox .= "<thead>"
                         ."<th>ID</th>"
@@ -91,21 +91,17 @@ if(!isset($_SESSION)) {
                         ."<th>&nbsp;</th>"
                       ."</tr>"
                       ."</thead>";
-
+        //print rows for the current category
         foreach($CATEGORIE AS $KEY => $VALUE) {
-
           $printbox .= "<tr>"
           . "<td>".$VALUE['id']."</td>"
             ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"  
           . "<td>".$VALUE['name']."</td>"
             ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][name]\" value=\"".$VALUE['name']."\"/>"  
           . "<td>".$VALUE['capacity']."</td>"
-          . "<td>".$VALUE['variant']."</td>"                
-          . "<td> <input type=\"text\" class=\"textinput\" name=\"updateInventory[".$KEY."][description]\" value=\"".$VALUE['description']."\" \>"
-              ."</td>"
-            . "<td style=\"width:50%;\">"
-            ."<input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][qty]\" required minimum=\"0\" value=\"".$VALUE['qty']."\"/>"
-            . "</td>"
+          . "<td>".$VALUE['variant']."</td>" 
+          . "<td> <input type=\"text\" class=\"textinput\" name=\"updateInventory[".$KEY."][description]\" value=\"".$VALUE['description']."\" \></td>"
+          . "<td> <input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][qty]\" required minimum=\"0\" value=\"".$VALUE['qty']."\"/></td>"
           . "</tr>";
         }
 
