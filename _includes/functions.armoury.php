@@ -6,7 +6,7 @@ function ar_initAmmoBox() {
 
   // haalt de inventory op
   $sql = "SELECT ar_ammoboxes.id as id,
-            ar_ammoboxes.type as type,
+            t1.type as type,
             t1.name as name,
             t1.capacity as capacity, 
             v1.name as variant,
@@ -31,9 +31,9 @@ function ar_initAmmoBox() {
           //   $VALUE = "";
           // }
 
-          if($KEY != "description") {
+          /*if($KEY != "description") {
             $VALUE = strtolower($VALUE);
-          }
+          }*/
 
           // VOLLEDIGE DATA ->CATEGORIE ->UNIEKE ID ->ALLE WAARDES
           $ammoArr[strtolower($row['type'])][$row['id']][$KEY] = EMS_echo($VALUE);
