@@ -10,7 +10,7 @@ if(!isset($_SESSION)) {
   loginRequired();
 
   $_MODULES["current"]["module"] = "armoury";
-  $_MODULES["current"]["page"] = "add_ammocrate";
+  $_MODULES["current"]["page"] = "Add AmmoCrate";
 
 
 
@@ -127,6 +127,7 @@ if(!isset($_SESSION)) {
 
       <div class="row">
         <input type="submit" value="Add AmmoCrate to Inventory" class="button">
+        <a href="ammocrate.php?ref=canceladd" class="button button-default">Cancel</a>
       </div>
 
     </div>

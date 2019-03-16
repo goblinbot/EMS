@@ -70,7 +70,7 @@ $_MODULES["modules"]["armoury"][$module_counter]->title = 'Armoury';
     $_MODULES["modules"]["armoury"][$module_counter]->url = $_CONFIG["header"].'/_modules/armoury/add_weapon.php';
     $_MODULES["modules"]["armoury"][$module_counter]->usergroups = ['armoury','finance'];
 
-    $module_counter++;
+    $module_counter++; 
   /////////////
   $_MODULES["modules"]["armoury"][$module_counter] = new moduleObj();
   $_MODULES["modules"]["armoury"][$module_counter]->title = 'AmmoCrate';
@@ -112,13 +112,13 @@ $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Gear exchange';
   $module_counter++;
 
     /////////////
-    $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
+   /* $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
     $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Deployed';
     $_MODULES["modules"]["gearExchange"][$module_counter]->parent  = $parent_counter;
       $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/currently_deployed.php';
       $_MODULES["modules"]["gearExchange"][$module_counter]->usergroups = ['armoury'];
   
-      $module_counter++;
+      $module_counter++;*/
 
   /////////////
   $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();

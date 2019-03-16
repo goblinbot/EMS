@@ -8,8 +8,8 @@ if(!isset($_SESSION)) {
   include_once($_CONFIG["root"] . "/_includes/includes.php");
   loginRequired();
 
-  $_MODULES["current"]["module"] = "gear exchange";
-  $_MODULES["current"]["page"] = "Deployed";
+  $_MODULES["current"]["module"] = "Gear Exchange";
+  $_MODULES["current"]["page"] = "Gear Exchange";
 
 
 
@@ -53,9 +53,10 @@ if(!isset($_SESSION)) {
     <?php
       if(isset($loanArr) && $loanArr != "") {
 
-        $printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a></p><br/>";
-
-        $printresult .= "<table class=\"table\">";
+        $printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a>";
+        $printresult .= "&nbsp;&nbsp;<a href=\"deploy.php\" class=\"button button-default\">Deploy</a>";
+        $printresult .= "&nbsp;&nbsp;<a href=\"return.php\" class=\"button button-default\">Return</a>";
+        $printresult .= "</p><br/><table class=\"table\">";
         $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"currently_deployed.php?ref=subm\" method=\"post\">";
 
         $printresult .= "<thead><tr>";

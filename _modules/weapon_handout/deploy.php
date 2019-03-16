@@ -137,7 +137,8 @@ if(!isset($_SESSION)) {
 
         <div class="row">
           <!-- <a class="button button-default" onclick="$('#deployGear').submit();">Return gear to inventory.</a> -->
-          <input type="submit" name="deployGear[submit]" value="Confirm deployment." class="button button-default">
+          <input type="submit" name="deployGear[submit]" value="Confirm Deployment" class="button button-default">
+          <a href="currently_deployed.php?ref=canceldeploy" class="button button-default">Cancel</a>
         </div>
 
 

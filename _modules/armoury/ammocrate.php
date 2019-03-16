@@ -62,7 +62,7 @@ if(!isset($_SESSION)) {
       $printresult .= "<button onclick=\"$('#inventoryForm').submit();\" class=\"button button-default\"><i class=\"fa fa-save\"></i>&nbsp;Save Inventory</button>";
       $printresult .= "&nbsp;&nbsp;<a href=\"add_ammocrate.php?ref=crate\" class=\"button button-default\"><i class=\"fa fa-plus-square\"></i>&nbsp;New</a>";
 
-      $printresult .= "<br/><hr/><br/>";
+      $printresult .= "<br/><hr/>";
 
       $printbox = "";
 

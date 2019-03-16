@@ -50,19 +50,17 @@ if(!isset($_SESSION)) {
   <div class="container">
 
     <h1>Armoury: Weapon inventory</h1>
-
-    <p>&nbsp;</p>
-
+    &nbsp;&nbsp;<a href="add_weapon.php?ref=crate" class="button button-default"><i class="fa fa-plus-square"></i>&nbsp;New</a>
     <hr/>
 
-    <p>&nbsp;</p>
     <?php
 
     $printresult = "";
-
+    
     if(isset($weaponArr) && $weaponArr != "") {
 
       $printresult .= "<form id=\"updateArmoury\" name=\"updateArmoury\" action=\"index.php?ref=butt\" method=\"post\">";
+      
 
       $printbox = "";
       foreach($weaponArr AS $TITLE => $CATEGORIE) {
