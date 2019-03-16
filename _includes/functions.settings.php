@@ -5,7 +5,7 @@ function ar_initUsergroups() {
   $userArr = array();
 
   // haalt de gebruikersgroepstoewijzingen op
-  $sql = "SELECT user_koppeling.id,user_koppeling.group_id,t1.id,t1.fullname FROM user_koppeling right join users t1 on t1.id = user_koppeling.user_id ORDER by user_koppeling.id ASC";
+  $sql = "SELECT user_koppeling.id as userid ,user_koppeling.group_id as groupid,t1.id,t1.fullname as fullname FROM user_koppeling right join users t1 on t1.id = user_koppeling.user_id ORDER by user_koppeling.id ASC";
   $result = $UPLINK->query($sql);
 
   // loopt door de results heen
@@ -13,7 +13,14 @@ function ar_initUsergroups() {
 
     $userArr = array();
 
-    while($row = mysqli_fetch_assoc($result)){
+    while ($row = mysql_fetch_assoc($result)) {
+      echo $row["userid"];
+      echo $row["fullname"];
+      echo $row["groupid"];
+      echo $row["id"];
+  }
+    /* while($row = mysqli_fetch_assoc($result)){
+
 
       //if(isset($row['group_id']) && $row['group_id'] != "") {
         foreach($row AS $KEY => $VALUE) {
@@ -28,4 +35,5 @@ function ar_initUsergroups() {
   } // if results hoger dan 0
 
   return $userArr;
-}
+}*/
+?>
