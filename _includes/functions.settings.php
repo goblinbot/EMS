@@ -13,7 +13,7 @@ function ar_initUsergroups() {
 
     $userArr = array();
 
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       echo $row["userid"];
       echo $row["fullname"];
       echo $row["groupid"];
