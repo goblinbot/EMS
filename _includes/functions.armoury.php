@@ -223,3 +223,35 @@ function ar_getAmmoBoxLoans($PARAMS = null) {
   return $loanArr;
 
 }
+// get ammobox inventory for loans
+function ar_getAmmoBoxLoanable($PARAMS = null) {
+
+  global $UPLINK, $_CONFIG;
+
+  $ammoInvLoan = array();
+
+  $sql = "SELECT ab.id, CONCAT(abt.name, ' - ', abv.name) as inv_item_name,
+  abt.capacity, abt.type, ab.amount
+  from ar_ammoboxes as ab
+  join ar_ammoboxes_types abt on ab.ammobox_type = abt.id
+  join ar_ammoboxes_variants abv on ab.variant = abv.id
+  WHERE ab.amount > 0
+  ORDER by inv_item_name asc";
+  $result = $UPLINK->query($sql);
+
+  if(mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_assoc($result)){
+      foreach($row AS $KEY => $VALUE) {
+
+        // VOLLEDIGE DATA ->UNIEKE ID ->ALLE WAARDES
+        $ammoInvLoan[$row['id']][$KEY] = EMS_echo($VALUE);
+
+      }//foreach
+    }
+
+  }
+
+  return $ammoInvLoan;
+
+}
