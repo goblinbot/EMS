@@ -115,7 +115,7 @@ if(!isset($_SESSION)) {
     
 
 
-      <form id="deployGear" name="deployGear" action="deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
+      <form id="deployGear" name="deployGear" action="weapon_deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
 
       <div class="deploy-forms">
         <div class="main-row">

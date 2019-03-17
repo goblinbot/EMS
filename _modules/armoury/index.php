@@ -93,7 +93,7 @@ if(!isset($_SESSION)) {
 
             if($VALUE['loan_status'] == 'false') {
               $BUTTONDEPLOY  = "<a class=\"button button-default\" title=\"save all\" style=\"padding: 4px 8px; border-radius: 1px;\" onclick=\"$('#updateArmoury').submit();\"><i class=\"fa fa-save\"></i></a>&nbsp;";
-              $BUTTONDEPLOY .= "<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/deploy.php?co=".$VALUE['barcode']."&key=".$KEY."\" title=\"deploy weapon\">"
+              $BUTTONDEPLOY .= "<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/weapon_deploy.php?co=".$VALUE['barcode']."&key=".$KEY."\" title=\"deploy weapon\">"
                 ."DEPLOY"
               ."</a>";
             } else {

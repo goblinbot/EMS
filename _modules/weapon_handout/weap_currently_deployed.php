@@ -9,7 +9,7 @@ if(!isset($_SESSION)) {
   loginRequired();
 
   $_MODULES["current"]["module"] = "Gear Exchange";
-  $_MODULES["current"]["page"] = "Gear Exchange";
+  $_MODULES["current"]["page"] = "Deployed Weapons";
 
 
 
@@ -54,8 +54,8 @@ if(!isset($_SESSION)) {
       if(isset($loanArr) && $loanArr != "") {
 
         $printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a>";
-        $printresult .= "&nbsp;&nbsp;<a href=\"deploy.php\" class=\"button button-default\">Deploy</a>";
-        $printresult .= "&nbsp;&nbsp;<a href=\"return.php\" class=\"button button-default\">Return</a>";
+        $printresult .= "&nbsp;&nbsp;<a href=\"weapon_deploy.php\" class=\"button button-default\">Deploy</a>";
+        //$printresult .= "&nbsp;&nbsp;<a href=\"weapon_return.php\" class=\"button button-default\">Return</a>";
         $printresult .= "</p><br/><table class=\"table\">";
         $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"weap_currently_deployed.php?ref=subm\" method=\"post\">";
 
@@ -86,7 +86,7 @@ if(!isset($_SESSION)) {
 
               ."<a class=\"button button-default\" title=\"save all\" style=\"padding: 4px 8px; border-radius: 1px;\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i></a>&nbsp;"
 
-              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/return.php?co=".$LOAN['barcode']."&key=".$KEY."\" title=\"return\">"
+              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/weapon_return.php?co=".$LOAN['barcode']."&key=".$KEY."\" title=\"return\">"
                 ."<i class=\"fa fa-check\"></i>&nbsp;RETURN"
               ."</a>"
 

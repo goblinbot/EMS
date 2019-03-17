@@ -110,7 +110,7 @@ if(!isset($_SESSION)) {
 
     <div class="main-row">
 
-      <form id="returnGear" name="returnGear" action="return.php?ref=form&amp;co=<?=$barcode?>" method="post">
+      <form id="returnGear" name="returnGear" action="weapon_return.php?ref=form&amp;co=<?=$barcode?>" method="post">
 
         <div class="row">
           <label>Code</label>

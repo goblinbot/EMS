@@ -201,7 +201,7 @@ function ar_getAmmoBoxLoans($PARAMS = null) {
     join ar_ammoboxes_types as abt on abt.id = ab.ammobox_type
     join ar_ammoboxes_variants as abv on abv.id = ab.variant
     join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
-    JOIN ar_weapons we on we.id = lo.assoc_weapon_loan
+    left JOIN ar_weapons we on we.id = lo.assoc_weapon_loan
        ".$WHERE."
     ORDER BY ab.id desc;";
   $result = $UPLINK->query($sql);
