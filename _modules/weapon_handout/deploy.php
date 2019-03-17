@@ -140,11 +140,14 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-          <label>Deploy ammo with this weapon?</label><br>
-          <input type="radio" name="choice-ammo" id="choice-ammo-yes">
-          <label for="choice-ammo-yes">Yes</label>
+          <div>
+        <input type="checkbox" name="choice-ammo" id="choice-ammo">
+        <label for="choice-ammo">Deploy ammo.</label>
           <div class="reveal-if-active">
-          Anything you want in here.
+          <h1> Ammo Deployment Form</h1>
+          Some form stuff here.
+          </div>
+  </div>
           </div>
           </div>
         
