@@ -1,0 +1,53 @@
+.reveal-if-active {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    font-size: 16px;
+    transform: scale(0.8);
+    transition: 0.5s;
+    
+    label {
+      display: block;
+      margin: 0 0 3px 0;
+    }
+    input[type=text] {
+      width: 100%;
+    }
+    
+    input[type="radio"]:checked ~ &,
+    input[type="checkbox"]:checked ~ & {
+      opacity: 1;
+      max-height: 100px;
+      padding: 10px 20px;
+      transform: scale(1);
+      overflow: visible;
+    }
+    
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 20px auto;
+    > div {
+      margin: 0 0 20px 0;
+      label {
+        font-weight: bold;
+      }
+      > div {
+        padding: 5px;
+      }
+    }
+    > h4 {
+      color: green;
+      font-size: 24px;
+      margin: 0 0 10px 0;
+      border-bottom: 2px solid green;
+    }
+  }
+  
+  body {
+    font-size: 20px;
+  }
+  * {
+    box-sizing: border-box;
+  }
