@@ -12,8 +12,6 @@ if(!isset($_SESSION)) {
   $_MODULES["current"]["module"] = "gear exchange";
   $_MODULES["current"]["page"] = "Deploy";
 
-
-
   if(isset($_POST['deployGear']['barcode']) && $_POST['deployGear']['barcode'] != "") {
     $barcode = $_POST['deployGear']['barcode'];
   } else if(isset($_GET["co"]) && $_GET["co"] != "") {
@@ -42,8 +40,7 @@ if(!isset($_SESSION)) {
         if(isset($POSTDATA['loaned_to']) && $POSTDATA['loaned_to'] != "") {
           if(isset($POSTDATA['loan_date']) && $POSTDATA['loan_date'] != "") {
 
-            $sql =
-            "INSERT INTO ar_loans_weapon
+            $sql = "INSERT INTO ar_loans_weapon
             (weapon_id, loaned_to, loan_status, loan_date, description
               ) VALUES (
                 '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."'
@@ -57,6 +54,26 @@ if(!isset($_SESSION)) {
             // zet wapen op onbeschikbaar
             $sql = "UPDATE ar_weapons SET loan_status = 'true', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
+            //Setup ammocrate loan
+            if(isset($POSTDATA['abid']) && $POSTDATA['abid'] != "") {
+                      
+                $sql = "INSERT INTO ar_loans_ammoboxes
+                        (ammobox_id, loaned_to, loan_status, loan_date, qty,assoc_weapon_loan
+                        ) VALUES (
+                            '".mysqli_real_escape_string($UPLINK,$POSTDATA['abid'])."'
+                            ,'".mysqli_real_escape_string($UPLINK,$POSTDATA['loaned_to'])."'
+                            ,'out'
+                            ,'".mysqli_real_escape_string($UPLINK,$POSTDATA['loan_date'])."'
+                            ,'".mysqli_real_escape_string($UPLINK,$POSTDATA['qty'])."'
+                            ,'".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."'
+                            );";
+                      $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
+                      // decrease available inventory
+                      $sql = "UPDATE ar_ammoboxes SET amount = amount - '".mysqli_real_escape_string($UPLINK,$POSTDATA['qty'])."', WHERE id = '".mysqli_real_escape_string($UPLINK,$POSTDATA['abid'])."' LIMIT 1";
+                      $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
+                  }
+              
+      
 
             header("location: weap_currently_deployed.php?ref=updated");
             exit();
@@ -76,9 +93,8 @@ if(!isset($_SESSION)) {
     } else {
       $ERROR = '<h3>Code missing.</h3>';
     }
-
+ 
   }
-
   // $weaponArr = ar_initWeapons();
   include_once($_CONFIG["root"] . "/header.php");
   if($CharGenUPLINK == false){}
@@ -154,18 +170,18 @@ if(!isset($_SESSION)) {
               <h1> Ammo Deployment Form</h1>
               <div class="row">
                 <label>Select Ammo Type</label>
-                <select name="deployGear[loaned_to]" required>
+                <select name="deployGear[abid]" class="require-if-active" data-require-pair="#choice-ammo">
                 <option value="">None</option>
                   <?php
                     foreach($ammoAvail as $ammochoice) {
-                    echo "<option value=\"{$ammochoice['id']}\">{$ammochoice['inv_item_name']}</option>"; 
+                    echo "<option value=\"{$ammochoice['abid']}\">{$ammochoice['inv_item_name']}</option>"; 
                     };
                   ?>
                 </select>
               <label>Amount</label>&nbsp;
               <input type="number" class="numbers" style="max-width: 5rem;"
-              required="required" value="<?=$ADD['amount']?>"
-              name="deductAmmoCrate[amount]" placeholder="0" min="1"
+              class="require-if-active" data-require-pair="#choice-ammo" value="<?=$ADD['abid']?>"
+              name="deployGear[qty]" placeholder="0" min="1"
               />
             </div>
         </div>

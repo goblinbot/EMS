@@ -195,14 +195,13 @@ function ar_getAmmoBoxLoans($PARAMS = null) {
   }
 
   $sql = "SELECT lo.id as loan_id,ab.id as abid, abt.type as abtype, abt.name as abtname, abv.name as abvariant, abt.capacity, c1.character_name as loaned_to,
-  lo.loan_status,lo.loan_date, lo.return_date, lo.qty,c1.ICC_number,c1.card_id,we.label as deployed_with
+  lo.loan_status,lo.loan_date, lo.return_date, lo.qty,c1.ICC_number,c1.card_id, concat(we.barcode, ' - ',we.label) as deployed_with
   FROM ar_loans_ammoboxes as lo
     JOIN ar_ammoboxes ab on lo.ammobox_id = ab.id
     join ar_ammoboxes_types as abt on abt.id = ab.ammobox_type
     join ar_ammoboxes_variants as abv on abv.id = ab.variant
     join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
-    JOIN ar_loans_weapon lw1 on lw1.id = lo.assoc_weapon_loan
-    JOIN ar_weapons we on we.id = lw1.weapon_id
+    JOIN ar_weapons we on we.id = lo.assoc_weapon_loan
        ".$WHERE."
     ORDER BY ab.id desc;";
   $result = $UPLINK->query($sql);
