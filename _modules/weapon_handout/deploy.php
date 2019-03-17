@@ -94,11 +94,14 @@ if(!isset($_SESSION)) {
         . "</div>";
       }
     ?>
-<div style="display: flex; flex-direction: row;">
     <h1>Deploy Weapon</h1>
+    
 
-    <div class="main-row">
+
       <form id="deployGear" name="deployGear" action="deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
+
+      <div class="deploy-forms">
+        <div class="main-row">
 
         <div class="row">
           <label>Code</label>
@@ -139,42 +142,43 @@ if(!isset($_SESSION)) {
           <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[description]" placeholder="Optional details" value="" />
         </div>
 
-        <div class="">
-          <input type="checkbox" name="choice-ammo" id="choice-ammo">
-        <label for="choice-ammo">Deploy ammo.</label>
-          <div class="reveal-if-active">
-          <h1> Ammo Deployment Form</h1>
-          <div class="row">
-            <label>Select Ammo Type</label>
-            <select name="deployGear[loaned_to]" required>
-            <option value="">None</option>
-              <?php
-                foreach($ammoAvail as $ammochoice) {
-                echo "<option value=\"{$ammochoice['id']}\">{$ammochoice['inv_item_name']}</option>"; 
-                };
-              ?>
-            </select>
-          <label>Amount</label>&nbsp;
-          <input type="number" class="numbers" style="max-width: 5rem;"
-           required="required" value="<?=$ADD['amount']?>"
-           name="deductAmmoCrate[amount]" placeholder="0" min="1"
-          />
-      </div>
-        </div>
-          </div>
-          </div>
-              </div>
-
         <div class="row">
+          <input type="checkbox" name="choice-ammo" id="choice-ammo">
+          <label for="choice-ammo">Deploy ammo.</label>
+        </div>
+
+      </div>
+
+        <div class="reveal-if-active">
+            <h1> Ammo Deployment Form</h1>
+            <div class="row">
+              <label>Select Ammo Type</label>
+              <select name="deployGear[loaned_to]" required>
+              <option value="">None</option>
+                <?php
+                  foreach($ammoAvail as $ammochoice) {
+                  echo "<option value=\"{$ammochoice['id']}\">{$ammochoice['inv_item_name']}</option>"; 
+                  };
+                ?>
+              </select>
+            <label>Amount</label>&nbsp;
+            <input type="number" class="numbers" style="max-width: 5rem;"
+            required="required" value="<?=$ADD['amount']?>"
+            name="deductAmmoCrate[amount]" placeholder="0" min="1"
+            />
+        </div>
+      </div>
+      </div>
+        <div class="row deploy-button-row">
           <!-- <a class="button button-default" onclick="$('#deployGear').submit();">Return gear to inventory.</a> -->
           <input type="submit" name="deployGear[submit]" value="Confirm Deployment" class="button button-default">
           <a href="weap_currently_deployed.php?ref=canceldeploy" class="button button-default">Cancel</a>
         </div>
-
-
-      </form>
-
+      </div>
     </div>
+
+    </form>
+
 
   </div>
 </div>
