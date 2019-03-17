@@ -154,8 +154,8 @@ function ar_getLoans($PARAMS = null) {
   }
 
   $sql = "SELECT we.barcode, we.label, we.model, we.type, we.status,lo.id,weapon_id,c1.character_name as loaned_to, lo.loan_status,lo.loan_date, lo.return_date,lo.description,c1.ICC_number,c1.card_id
-FROM ems.ar_loans_weapon as lo
-  INNER JOIN ems.ar_weapons AS we ON lo.weapon_id = we.id
+FROM ar_loans_weapon as lo
+  INNER JOIN ar_weapons AS we ON lo.weapon_id = we.id
   join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
        ".$WHERE."
       ORDER BY id DESC;";
@@ -196,13 +196,13 @@ function ar_getAmmoBoxLoans($PARAMS = null) {
 
   $sql = "SELECT lo.id as loan_id,ab.id as abid, abt.type as abtype, abt.name as abtname, abv.name as abvariant, abt.capacity, c1.character_name as loaned_to,
   lo.loan_status,lo.loan_date, lo.return_date, lo.qty,c1.ICC_number,c1.card_id,we.label as deployed_with
-  FROM ems.ar_loans_ammoboxes as lo
-    JOIN ems.ar_ammoboxes ab on lo.ammobox_id = ab.id
-    join ems.ar_ammoboxes_types as abt on abt.id = ab.ammobox_type
-    join ems.ar_ammoboxes_variants as abv on abv.id = ab.variant
+  FROM ar_loans_ammoboxes as lo
+    JOIN ar_ammoboxes ab on lo.ammobox_id = ab.id
+    join ar_ammoboxes_types as abt on abt.id = ab.ammobox_type
+    join ar_ammoboxes_variants as abv on abv.id = ab.variant
     join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
-    JOIN ems.ar_loans_weapon lw1 on lw1.id = lo.assoc_weapon_loan
-    JOIN ems.ar_weapons we on we.id = lw1.weapon_id
+    JOIN ar_loans_weapon lw1 on lw1.id = lo.assoc_weapon_loan
+    JOIN ar_weapons we on we.id = lw1.weapon_id
        ".$WHERE."
     ORDER BY ab.id desc;";
   $result = $UPLINK->query($sql);
