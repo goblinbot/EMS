@@ -69,7 +69,7 @@ if(!isset($_SESSION)) {
                             );";
                       $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
                       // decrease available inventory
-                      $sql = "UPDATE ar_ammoboxes SET amount = amount - '".mysqli_real_escape_string($UPLINK,$POSTDATA['qty'])."', WHERE id = '".mysqli_real_escape_string($UPLINK,$POSTDATA['abid'])."' LIMIT 1";
+                      $sql = "UPDATE ar_ammoboxes SET amount = amount - '".mysqli_real_escape_string($UPLINK,$POSTDATA['qty'])."' WHERE id = '".mysqli_real_escape_string($UPLINK,$POSTDATA['abid'])."' LIMIT 1";
                       $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
                   }
               
