@@ -230,8 +230,8 @@ function ar_getAmmoBoxLoanable($PARAMS = null) {
 
   $ammoInvLoan = array();
 
-  $sql = "SELECT ab.id, CONCAT(abt.name, ' - ', abv.name) as inv_item_name,
-  abt.capacity, abt.type, ab.amount
+  $sql = "SELECT ab.id as abid, CONCAT(abt.name, ' - ', abv.name, '(', ab.amount, ' available)') as inv_item_name,
+  abt.capacity, abt.type, ab.amount as abamount
   from ar_ammoboxes as ab
   join ar_ammoboxes_types abt on ab.ammobox_type = abt.id
   join ar_ammoboxes_variants abv on ab.variant = abv.id
@@ -245,7 +245,7 @@ function ar_getAmmoBoxLoanable($PARAMS = null) {
       foreach($row AS $KEY => $VALUE) {
 
         // VOLLEDIGE DATA ->UNIEKE ID ->ALLE WAARDES
-        $ammoInvLoan[$row['id']][$KEY] = EMS_echo($VALUE);
+        $ammoInvLoan[$row['abid']][$KEY] = EMS_echo($VALUE);
 
       }//foreach
     }
