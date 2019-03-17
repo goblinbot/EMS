@@ -81,7 +81,8 @@ if(!isset($_SESSION)) {
 
   // $weaponArr = ar_initWeapons();
   include_once($_CONFIG["root"] . "/header.php");
-  $characters = ar_initECCCharacters();
+  if($CharGenUPLINK == false){}
+    else{$characters = ar_initECCCharacters();}
   $ammoAvail = ar_getAmmoBoxLoanable();
 ?>
 <div class="main item">
@@ -114,17 +115,21 @@ if(!isset($_SESSION)) {
         <div class="row">
           <label>Who?</label>
         </div>
-
-        <div class="row">
-        <select name="deployGear[loaned_to]" style="max-width: 15rem;" required>
-          <option value="">None</option>
-          <?php
+        <?php
+        if($CharGenUPLINK==false)
+        {
+          echo "<div class=\"row\">
+          No db connection made. You cannot select a character";
+        }  else {
+            echo "<div class=\"row\">
+            <select name=\"deployGear[loaned_to]\" style=\"max-width: 15rem;\" required>
+            <option value=\"\">None</option>";
             foreach($characters as $character) {
-              echo "<option value=\"{$character['characterID']}\">{$character['character_name']}</option>"; 
-            };
+            echo "<option value=\"{$character['characterID']}\">{$character['character_name']}</option>"; 
+            }
+            echo "</select> </div>";
+          }
           ?>
-        </select>
-        </div>
 
         <div class="row">
           <label>When?</label>
@@ -144,7 +149,7 @@ if(!isset($_SESSION)) {
 
         <div class="row">
           <input type="checkbox" name="choice-ammo" id="choice-ammo">
-          <label for="choice-ammo">Deploy ammo.</label>
+          <label for="choice-ammo">Deploy ammo?</label>
         </div>
 
       </div>

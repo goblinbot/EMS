@@ -9,6 +9,7 @@
 
 // You shouldn't need to change anything below this line apart from "header"
   $UPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
+  $CharGenUPLINK = '';
   $CharGenUPLINK = mysqli_connect($mHOST, $mUSER, $mPASS, $mDB);
 
     // default config array
