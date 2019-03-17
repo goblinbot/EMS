@@ -349,6 +349,28 @@ input, select {
     }
   }
 
+  // use to align the two forms next to eachother
+.deploy-forms {
+
+  display: flex;
+  flex-direction: row;
+
+  // align vertically on smaller screens
+  @media(max-width: 768px) {
+    flex-direction: column;
+  }
+
+  // make the two forms equally wide
+  .main-row, .reveal-if-active {
+    flex: 1;
+  }
+
+}
+
+.deploy-button-row {
+  padding-top: 1.5rem;
+}
+
 @keyframes slidemotto{
   0%      {margin-top:0;}
   8%      {margin-top:0;}
