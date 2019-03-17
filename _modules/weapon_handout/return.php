@@ -141,7 +141,7 @@ if(!isset($_SESSION)) {
         <div class="row">
           <!-- <a class="button button-default" onclick="$('#returnGear').submit();">Return gear to inventory.</a> -->
           <input type="submit" name="returnGear[submit]" value="Return Gear" class="button button-default">
-          <a href="currently_deployed.php?ref=cancelreturn" class="button button-default">Cancel</a>
+          <a href="weap_currently_deployed.php?ref=cancelreturn" class="button button-default">Cancel</a>
         </div>
 
 

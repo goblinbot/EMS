@@ -138,14 +138,12 @@ function ar_initWeapons($PARAM = null) {
 }
 
 
-// get loans
+// get weapon loans
 function ar_getLoans($PARAMS = null) {
 
   global $UPLINK, $_CONFIG;
 
   $loanArr = array();
-
-  // $loanArr["PARAMS"] = $PARAMS;
 
   if(isset($PARAMS) && $PARAMS == "out") {
     $WHERE = "WHERE lo.loan_status = 'out' ";
@@ -170,6 +168,52 @@ FROM ems.ar_loans_weapon as lo
 
         // VOLLEDIGE DATA ->UNIEKE ID ->ALLE WAARDES
         $loanArr[$row['id']][$KEY] = EMS_echo($VALUE);
+
+      }//foreach
+    }
+
+  }
+
+  return $loanArr;
+
+}
+
+// get ammoBox Loans
+
+function ar_getAmmoBoxLoans($PARAMS = null) {
+
+  global $UPLINK, $_CONFIG;
+
+  $loanArr = array();
+
+  if(isset($PARAMS) && $PARAMS == "out") {
+    $WHERE = "WHERE lo.loan_status = 'out' ";
+  } else if(isset($PARAMS) && $PARAMS == "done") {
+    $WHERE = "WHERE lo.loan_status = 'done' ";
+  } else {
+    $WHERE = "";
+  }
+
+  $sql = "SELECT lo.id as loan_id,ab.id as abid, abt.type as abtype, abt.name as abtname, abv.name as abvariant, abt.capacity, c1.character_name as loaned_to, 
+  lo.loan_status,lo.loan_date, lo.return_date, lo.qty,c1.ICC_number,c1.card_id,we.label as deployed_with
+  FROM ems.ar_loans_ammoboxes as lo
+    JOIN ems.ar_ammoboxes ab on lo.ammobox_id = ab.id
+    join ems.ar_ammoboxes_types as abt on abt.id = ab.ammobox_type
+    join ems.ar_ammoboxes_variants as abv on abv.id = ab.variant
+    join joomla.ecc_characters c1 on c1.characterID = lo.loaned_to
+    JOIN ems.ar_loans_weapon lw1 on lw1.id = lo.assoc_weapon_loan
+    JOIN ems.ar_weapons we on we.id = lw1.weapon_id
+       ".$WHERE."
+    ORDER BY ab.id desc;";
+  $result = $UPLINK->query($sql);
+
+  if(mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_assoc($result)){
+      foreach($row AS $KEY => $VALUE) {
+
+        // VOLLEDIGE DATA ->UNIEKE ID ->ALLE WAARDES
+        $loanArr[$row['loan_id']][$KEY] = EMS_echo($VALUE);
 
       }//foreach
     }

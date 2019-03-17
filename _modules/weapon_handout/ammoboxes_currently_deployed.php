@@ -9,7 +9,7 @@ if(!isset($_SESSION)) {
   loginRequired();
 
   $_MODULES["current"]["module"] = "Gear Exchange";
-  $_MODULES["current"]["page"] = "Gear Exchange";
+  $_MODULES["current"]["page"] = "Ammo Currently Deployed";
 
 
 
@@ -20,9 +20,8 @@ if(!isset($_SESSION)) {
       foreach($_POST['updateDeployed'] AS $ID => $update) {
 
         if(is_numeric($ID)) {
-          $sql = "UPDATE ar_loans_weapon
+          $sql = "UPDATE ar_loans_ammoboxes
                   SET loaned_to = '".mysqli_real_escape_string($UPLINK,$update['loaned_to'])."'
-                    , description = '".mysqli_real_escape_string($UPLINK,$update['description'])."'
                     WHERE id = '".mysqli_real_escape_string($UPLINK,$ID)."'
                     LIMIT 1";
           $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
@@ -30,7 +29,7 @@ if(!isset($_SESSION)) {
 
       }
 
-      header("location: currently_deployed.php?ref=update");
+      header("location: ammoboxes_currently_deployed.php?ref=update");
       exit();
 
     } else {
@@ -42,13 +41,13 @@ if(!isset($_SESSION)) {
   }
 
 
-  $loanArr = ar_getLoans("out");
+  $loanArr = ar_getAmmoBoxLoans("out");
   include_once($_CONFIG["root"] . "/header.php");
 ?>
 <div class="main item">
   <div class="container">
 
-    <h1>Currently deployed</h1>
+    <h1>AmmoBoxes Currently deployed</h1>
 
     <?php
       if(isset($loanArr) && $loanArr != "") {
@@ -57,17 +56,20 @@ if(!isset($_SESSION)) {
         $printresult .= "&nbsp;&nbsp;<a href=\"deploy.php\" class=\"button button-default\">Deploy</a>";
         $printresult .= "&nbsp;&nbsp;<a href=\"return.php\" class=\"button button-default\">Return</a>";
         $printresult .= "</p><br/><table class=\"table\">";
-        $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"currently_deployed.php?ref=subm\" method=\"post\">";
+        $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"ammoboxes_currently_deployed.php?ref=subm\" method=\"post\">";
 
         $printresult .= "<thead><tr>";
         $printresult .=
-           "<th>Label</th>"
-          ."<th>Code</th>"
-          ."<th>Model</th>"
-          ."<th>Type</th>"
+           "<th>Code</th>"
+          ."<th>Type</th>" 
+          ."<th>Name</th>"
+          ."<th>Variant</th>"
+          ."<th>Capacity</th>" 
           ."<th>Deployed To</th>"
+          ."<th>Deployed With</th>"
+          ."<th>Qty</th>"
           ."<th>Since</th>"
-          ."<th><i class=\"fa fa-info-circle\"></i></th>"
+          
           ."<th>&nbsp;</th>";
         $printresult .= "</tr></thead>";
 
@@ -75,18 +77,17 @@ if(!isset($_SESSION)) {
         foreach($loanArr AS $KEY => $LOAN ) {
 
           $printresult .= "<tr>"
-            . "<td>".$LOAN['label']."</td>"
-            . "<td>".$LOAN['barcode']."</td>"
-            . "<td>".$LOAN['model']."</td>"
-            . "<td>".$LOAN['type']."</td>"
+            . "<td>".$LOAN['abid']."</td>"
+            . "<td>".$LOAN['abtype']."</td>"
+            . "<td>".$LOAN['abtname']."</td>"
+            . "<td>".$LOAN['abvariant']."</td>"
+            . "<td>".$LOAN['capacity']."</td>"
             . "<td>".$LOAN['loaned_to']."</td>"
+            . "<td>".$LOAN['deployed_with']."</td>"
+            . "<td>".$LOAN['qty']."</td>"
             . "<td>".$LOAN['loan_date']."</td>"
-            . "<td><input type=\"text\" class=\"textinput\" name=\"updateDeployed[".$KEY."][description]\" value=\"".$LOAN['description']."\" /></td>"
             . "<td class=\"text-right\">"
-
-              ."<a class=\"button button-default\" title=\"save all\" style=\"padding: 4px 8px; border-radius: 1px;\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i></a>&nbsp;"
-
-              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/return.php?co=".$LOAN['barcode']."&key=".$KEY."\" title=\"return\">"
+              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/return_ammobox.php?co=".$LOAN['loan_id']."&key=".$KEY."\" title=\"return\">"
                 ."<i class=\"fa fa-check\"></i>&nbsp;RETURN"
               ."</a>"
 

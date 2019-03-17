@@ -58,7 +58,7 @@ if(!isset($_SESSION)) {
             $sql = "UPDATE ar_weapons SET loan_status = 'true', status = 'Deployed' WHERE id = '".mysqli_real_escape_string($UPLINK,$WEAPON_ID)."' LIMIT 1";
             $update = $UPLINK->query($sql) or trigger_error(mysqli_error($UPLINK));
 
-            header("location: currently_deployed.php?ref=updated");
+            header("location: weap_currently_deployed.php?ref=updated");
             exit();
 
           } else {
@@ -96,8 +96,6 @@ if(!isset($_SESSION)) {
 
     <h1>Deploy Weapon</h1>
 
-    <p>.</p>
-
     <div class="main-row">
 
       <form id="deployGear" name="deployGear" action="deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
@@ -115,7 +113,8 @@ if(!isset($_SESSION)) {
         </div>
 
         <div class="row">
-        <select name="deployGear[loaned_to]" style="max-width: 15rem;" required="required">
+        <select name="deployGear[loaned_to]" style="max-width: 15rem;" required>
+          <option value="">None</option>
           <?php
             foreach($characters as $character) {
               echo "<option value=\"{$character['characterID']}\">{$character['character_name']}</option>"; 
@@ -140,12 +139,22 @@ if(!isset($_SESSION)) {
           <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[description]" placeholder="Optional details" value="" />
         </div>
 
-        <div class="row"></div>
+        <div class="row">
+          <label>Deploy ammo with this weapon?</label><br>
+          <input type="radio" name="choice-ammo" id="choice-ammo-yes">
+          <label for="choice-ammo-yes">Yes</label>
+               <div class="reveal-if-active">
+                Anything you want in here.
+               </div>
+          <input type="radio" name="choice-ammo" id="choice-ammo-no">
+          <label for="choice-ammo-no">No</label>    
+        </div>
+        
 
         <div class="row">
           <!-- <a class="button button-default" onclick="$('#deployGear').submit();">Return gear to inventory.</a> -->
           <input type="submit" name="deployGear[submit]" value="Confirm Deployment" class="button button-default">
-          <a href="currently_deployed.php?ref=canceldeploy" class="button button-default">Cancel</a>
+          <a href="weap_currently_deployed.php?ref=canceldeploy" class="button button-default">Cancel</a>
         </div>
 
 

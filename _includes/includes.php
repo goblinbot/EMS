@@ -105,20 +105,20 @@ $parent_counter = "Gear exchange";
 
 $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
 $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Gear exchange';
-  $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/currently_deployed.php';
+  $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/weap_currently_deployed.php';
   $_MODULES["modules"]["gearExchange"][$module_counter]->icon  = 'fa fa-retweet';
   $_MODULES["modules"]["gearExchange"][$module_counter]->menu_level = '0';
 
   $module_counter++;
 
     /////////////
-   /* $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
-    $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Deployed';
+   $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
+    $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'AmmoBoxes Deployed';
     $_MODULES["modules"]["gearExchange"][$module_counter]->parent  = $parent_counter;
-      $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/currently_deployed.php';
+      $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/ammoboxes_currently_deployed.php';
       $_MODULES["modules"]["gearExchange"][$module_counter]->usergroups = ['armoury'];
   
-      $module_counter++;*/
+      $module_counter++;
 
   /////////////
   $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
