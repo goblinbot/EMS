@@ -78,33 +78,40 @@ if(!isset($_SESSION)) {
       <div class="row">
     </div>
       <div class="row">
-     <label>Type</label>&nbsp;
-        <select name="addAmmoCrate[category]" style="max-width: 15rem;">
+     <label>Type</label><br />
+        <select class="select-type" name="addAmmoCrate[category]" style="max-width: 15rem;">
          <?php
             foreach($ammoboxcategories as $ammoboxtype) {
-              echo "<option value=\"{$ammoboxtype['type']}\">{$ammoboxtype['type']}</option>"; 
-            };
-          ?> 
-        </select>
-      </div> 
-    
-      <div class="row">
-        <label>Name</label>&nbsp;
-        <select name="addAmmoCrate[ammobox_type]" style="max-width: 15rem;">
-          <?php
-            foreach($ammoboxtypes as $ammoboxtype) {
-              echo "<option value=\"{$ammoboxtype['typeid']}\">{$ammoboxtype['name']}</option>"; 
+              echo "<option value=\"{$ammoboxtype['type']}\">{$ammoboxtype['type']}</option>";
             };
           ?>
         </select>
       </div>
-      
+
       <div class="row">
-        <label>Variant</label>&nbsp;
-        <select name="addAmmoCrate[variant]" style="max-width: 15rem;">
+        <label>Name</label><br />
+        <select class="select-name" name="addAmmoCrate[ammobox_type]" style="max-width: 15rem;">
+          <?php
+            foreach($ammoboxtypes as $ammoboxtype) {
+                //echo "<option datatype= value=\"{$ammoboxtype['typeid']}\">{$ammoboxtype['name']}</option>";
+            ?>
+
+              <option class="<?php echo $ammoboxtype["type"]; ?>" value="<?php echo $ammoboxtype['typeid'] ?>"><?php echo $ammoboxtype['name'] ?></option>
+            <?php
+            };
+          ?>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Variant</label><br />
+        <select class="select-variant" name="addAmmoCrate[variant]" style="max-width: 15rem;">
           <?php
             foreach($ammoboxvariants as $ammoboxvariant) {
-              echo "<option value=\"{$ammoboxvariant['id']}\">{$ammoboxvariant['name']}</option>"; 
+              //echo "<option value=\"{$ammoboxvariant['id']}\">{$ammoboxvariant['name']}</option>";
+              ?>
+              <option class="<?php echo $ammoboxvariant["type"]; ?>" value="<?php echo $ammoboxvariant['id'] ?>"><?php echo $ammoboxvariant['name'] ?></option>
+              <?php
             };
           ?>
         </select>
@@ -134,6 +141,29 @@ if(!isset($_SESSION)) {
     </form>
 
   </div>
+  <script>
+    $( document ).ready(function() {
+        HideValues();
+        ShowValues();
+    })
+
+    $(".select-type").change(function () {
+        HideValues();
+        ShowValues();
+    });
+
+
+    function HideValues() {
+        $(".select-name>option").hide();
+        $(".select-variant>option").hide();
+    }
+
+    function ShowValues() {
+        var selectType = $(".select-type").val();
+        $(".select-name>option[class=" + selectType + "]").show().first().prop('selected', true);
+        $(".select-variant>option[class=" + selectType + "]").show().first().prop('selected', true);
+    }
+  </script>
 </div>
 <?php
   include_once($_CONFIG["root"] . "/footer.php");
