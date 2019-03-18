@@ -73,7 +73,7 @@ if(!isset($_SESSION)) {
         } else {
           $class = "tab";
         }
-
+   
         // tabjes maken voor top
         $printresult .= "<a onclick=\"activateTab('".$TITLE."');\" class=\"button button-tab\"><i class=\"fa fa-angle-down\"></i>&nbsp;".$TITLE."</a>";
 
@@ -89,10 +89,18 @@ if(!isset($_SESSION)) {
                         ."<th>Description</th>"
                         ."<th>Quantity</th>"
                         ."<th>&nbsp;</th>"
+                        ."<th>&nbsp;</th>"
                       ."</tr>"
                       ."</thead>";
         //print rows for the current category
         foreach($CATEGORIE AS $KEY => $VALUE) {
+          if($VALUE['qty'] > '0') {
+            $BUTTONDEPLOY = "<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/ammobox_deploy.php?max=".$VALUE['qty']."&co=".$VALUE['name']."&var=".$VALUE['variant']."&key=".$KEY."\" title=\"deploy ammobox\">"
+              ."DEPLOY"
+            ."</a>";
+          } else {
+            $BUTTONDEPLOY = '';
+          }
           $printbox .= "<tr>"
           . "<td>".$VALUE['id']."</td>"
             ."<input type=\"hidden\" class=\"hidden\" name=\"updateInventory[".$KEY."][id]\" value=\"".$VALUE['id']."\"/>"  
@@ -102,7 +110,10 @@ if(!isset($_SESSION)) {
           . "<td>".$VALUE['variant']."</td>" 
           . "<td> <input type=\"text\" class=\"textinput\" name=\"updateInventory[".$KEY."][description]\" value=\"".$VALUE['description']."\" \></td>"
           . "<td> <input type=\"number\" class=\"numbers\" name=\"updateInventory[".$KEY."][qty]\" required minimum=\"0\" value=\"".$VALUE['qty']."\"/></td>"
+          . "<td>". $BUTTONDEPLOY . "</td>"
+          
           . "</tr>";
+          
         }
 
         $printbox .= "</table>";

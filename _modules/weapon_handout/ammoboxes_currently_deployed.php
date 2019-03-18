@@ -52,10 +52,10 @@ if(!isset($_SESSION)) {
     <?php
       if(isset($loanArr) && $loanArr != "") {
 
-        $printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a>";
-        $printresult .= "&nbsp;&nbsp;<a href=\"ammobox_deploy.php\" class=\"button button-default\">Deploy</a>";
+        //$printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a>";
+        //$printresult .= "&nbsp;&nbsp;<a href=\"ammobox_deploy.php\" class=\"button button-default\">Deploy</a>";
         //$printresult .= "&nbsp;&nbsp;<a href=\"weapon_return.php\" class=\"button button-default\">Return</a>";
-        $printresult .= "</p><br/><table class=\"table\">";
+        $printresult = "</p><br/><table class=\"table\">";
         $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"ammoboxes_currently_deployed.php?ref=subm\" method=\"post\">";
 
         $printresult .= "<thead><tr>";
