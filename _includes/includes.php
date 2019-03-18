@@ -130,7 +130,7 @@ $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
       $module_counter++;
 
   /////////////
-  $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
+ /* $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
   $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Deploy';
   $_MODULES["modules"]["gearExchange"][$module_counter]->parent  = $parent_counter;
     $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/weapon_deploy.php';
@@ -145,16 +145,23 @@ $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
     $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/weapon_return.php';
 
     $module_counter++;
-
+*/
   //////////////
   $_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
-  $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'History';
+  $_MODULES["modules"]["gearExchange"][$module_counter]->title = 'Weapon History';
   $_MODULES["modules"]["gearExchange"][$module_counter]->parent  = $parent_counter;
-    $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/history.php';
+  $_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/history.php';
     $_MODULES["modules"]["gearExchange"][$module_counter]->usergroups = ['armoury'];
 
     $module_counter++;
+//////////////
+$_MODULES["modules"]["gearExchange"][$module_counter] = new moduleObj();
+$_MODULES["modules"]["gearExchange"][$module_counter]->title = 'AmmoBox History';
+$_MODULES["modules"]["gearExchange"][$module_counter]->parent  = $parent_counter;
+$_MODULES["modules"]["gearExchange"][$module_counter]->url = $_CONFIG["header"].'/_modules/weapon_handout/ammobox_history.php';
+  $_MODULES["modules"]["gearExchange"][$module_counter]->usergroups = ['armoury'];
 
+  $module_counter++;
 // medbay exchange module /////////////////////////////////////////////////////////////////////////
 // $_MODULES["modules"]["medbay"] = array();
 // $module_counter = 0;

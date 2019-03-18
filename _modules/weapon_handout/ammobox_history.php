@@ -9,9 +9,9 @@ if(!isset($_SESSION)) {
   loginRequired();
 
   $_MODULES["current"]["module"] = "gear exchange";
-  $_MODULES["current"]["page"] = "Weapon History";
+  $_MODULES["current"]["page"] = "Ammobox History";
 
-  $loanArr = ar_getLoans("done");
+  $loanArr = ar_getAmmoBoxLoans("done");
   include_once($_CONFIG["root"] . "/header.php");
 ?>
 <div class="main item">
@@ -19,7 +19,7 @@ if(!isset($_SESSION)) {
 
 
   <div class="container">
-    <h1>Weapons Check In/Out History</h1>
+    <h1>AmmoBox Check In/Out history</h1>
 
     <?php
       if(isset($loanArr) && $loanArr != "") {
@@ -28,11 +28,14 @@ if(!isset($_SESSION)) {
 
         $printresult .= "<thead><tr>";
         $printresult .=
-           "<th>Label</th>"
-          ."<th>Code</th>"
-          ."<th>Model</th>"
-          ."<th>Deployed To</th>"
-          ."<th>Deploy Date</th>"
+        "<th>Loan ID</th>"
+        ."<th>Code</th>"
+        ."<th>Type</th>" 
+        ."<th>Name</th>"
+        ."<th>Variant</th>"
+        ."<th>Capacity</th>" 
+        ."<th>Deployed To</th>"
+        ."<th>Deployed With</th>"
           ."<th>Return Date</th>"
           ."<th><i class=\"fa fa-info-circle\"></i></th>";
         $printresult .= "</tr></thead>";
@@ -41,13 +44,15 @@ if(!isset($_SESSION)) {
         foreach($loanArr AS $KEY => $LOAN ) {
 
           $printresult .= "<tr>"
-          . "<td>".$LOAN['label']."</td>"
-          . "<td>".$LOAN['barcode']."</td>"
-          . "<td>".$LOAN['model']."</td>"
-          . "<td>".$LOAN['loaned_to']."</td>"
-          . "<td>".$LOAN['loan_date']."</td>"
+          . "<td>".$LOAN['loan_id']."</td>"
+            . "<td>".$LOAN['abid']."</td>"
+            . "<td>".$LOAN['abtype']."</td>"
+            . "<td>".$LOAN['abtname']."</td>"
+            . "<td>".$LOAN['abvariant']."</td>"
+            . "<td>".$LOAN['capacity']."</td>"
+            . "<td>".$LOAN['loaned_to']."</td>"
+            . "<td>".$LOAN['deployed_with']."</td>"
           . "<td>".$LOAN['return_date']."</td>"
-          . "<td>".$LOAN['description']."</td>"
           ."</tr>";
         }
 

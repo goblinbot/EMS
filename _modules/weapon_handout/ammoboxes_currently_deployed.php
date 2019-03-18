@@ -53,14 +53,15 @@ if(!isset($_SESSION)) {
       if(isset($loanArr) && $loanArr != "") {
 
         $printresult = "<p><a class=\"button button-default\" onclick=\"$('#updateDeployed').submit();\"><i class=\"fa fa-save\"></i>&nbsp;Save changes</a>";
-        $printresult .= "&nbsp;&nbsp;<a href=\"weapon_deploy.php\" class=\"button button-default\">Deploy</a>";
+        $printresult .= "&nbsp;&nbsp;<a href=\"ammobox_deploy.php\" class=\"button button-default\">Deploy</a>";
         //$printresult .= "&nbsp;&nbsp;<a href=\"weapon_return.php\" class=\"button button-default\">Return</a>";
         $printresult .= "</p><br/><table class=\"table\">";
         $printresult .= "<form id=\"updateDeployed\" name=\"updateDeployed\" action=\"ammoboxes_currently_deployed.php?ref=subm\" method=\"post\">";
 
         $printresult .= "<thead><tr>";
         $printresult .=
-           "<th>Code</th>"
+           "<th>Loan ID</th>"
+          ."<th>Code</th>"
           ."<th>Type</th>" 
           ."<th>Name</th>"
           ."<th>Variant</th>"
@@ -76,6 +77,7 @@ if(!isset($_SESSION)) {
         foreach($loanArr AS $KEY => $LOAN ) {
 
           $printresult .= "<tr>"
+          . "<td>".$LOAN['loan_id']."</td>"
             . "<td>".$LOAN['abid']."</td>"
             . "<td>".$LOAN['abtype']."</td>"
             . "<td>".$LOAN['abtname']."</td>"
@@ -86,7 +88,7 @@ if(!isset($_SESSION)) {
             . "<td>".$LOAN['qty']."</td>"
             . "<td>".$LOAN['loan_date']."</td>"
             . "<td class=\"text-right\">"
-              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/return_ammobox.php?co=".$LOAN['loan_id']."&key=".$KEY."\" title=\"return\">"
+              ."<a class=\"button\" style=\"padding: 4px 8px; border-radius: 1px;\" href=\"".$_CONFIG["header"]."/_modules/weapon_handout/ammobox_return.php?co=".$LOAN['abid']."&qty=".$LOAN['qty']."&key=".$KEY."\" title=\"return\">"
                 ."<i class=\"fa fa-check\"></i>&nbsp;RETURN"
               ."</a>"
 
