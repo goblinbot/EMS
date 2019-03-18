@@ -160,7 +160,8 @@ if(!isset($_SESSION)) {
         </div>
         </div>
         <div class="main-row">
-        <label for="choice-ammo"> <input type="checkbox" name="choice-ammo" id="choice-ammo"> Deploy ammo?</label>
+          <input type="checkbox" name="choice-ammo" id="choice-ammo">
+          <label for="choice-ammo">Deploy ammo?</label>
           <div class="reveal-if-active">
               <h1> Ammo Deployment Form</h1>
               <div class="row">
