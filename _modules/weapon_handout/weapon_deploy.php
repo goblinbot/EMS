@@ -111,15 +111,11 @@ if(!isset($_SESSION)) {
         . "</div>";
       }
     ?>
-    <h1>Deploy Weapon</h1>
-    
-
-
-      <form id="deployGear" name="deployGear" action="weapon_deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
+     <form id="deployGear" name="deployGear" action="weapon_deploy.php?ref=form&amp;co=<?=$barcode?>" method="post">
 
       <div class="deploy-forms">
         <div class="main-row">
-
+        <h1>Deploy Weapon</h1>
         <div class="row">
           <label>Code</label>
         </div>
