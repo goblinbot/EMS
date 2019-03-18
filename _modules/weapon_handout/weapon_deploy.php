@@ -163,7 +163,7 @@ if(!isset($_SESSION)) {
           <input type="text" class="textinput" style="max-width:25rem;" name="deployGear[description]" placeholder="Optional details" value="" />
         </div>
         </div>
-        <div class="row">
+        <div class="main-row">
           <input type="checkbox" name="choice-ammo" id="choice-ammo">
           <label for="choice-ammo">Deploy ammo?</label>
           <div class="reveal-if-active">
