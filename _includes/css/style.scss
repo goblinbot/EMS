@@ -387,3 +387,6 @@ input, select {
   93%     {margin-top:0;}
   100%    {margin-top:0;}
 }
+.rowcopy:first-child .remove{
+  display:none;
+}
