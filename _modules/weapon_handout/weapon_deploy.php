@@ -175,7 +175,7 @@ if(!isset($_SESSION)) {
                   ?>
                 </select>
               <label>Amount</label>&nbsp;
-              <input type="number" class="numbers" style="max-width: 5rem;" class="require-if-active" data-require-pair="#choice-ammo" value="<?=$ADD['abid']?>" name="deployGear[qty]" placeholder="0" min="1" />
+              <input type="number" class="numbers" style="max-width: 5rem;" class="require-if-active" data-require-pair="#choice-ammo" value="" name="deployGear[qty]" placeholder="0" min="1" />
               <div class="actions">
                   <span class="copy">+</span>
                   <span class="remove">-</span>
