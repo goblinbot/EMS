@@ -269,6 +269,7 @@ input, select {
   color: $wit;
   font-weight: bold;
   text-decoration: none;
+  transition: 0.4s;
 
   background: $primary;
   &:hover, &:active, &.active {
@@ -293,6 +294,18 @@ input, select {
   &.button-tab {
     margin: $defaultspace $defaultspace $defaultspace 0;
     padding: $defaultspace 15px;
+  }
+
+  &.button-sm {
+    margin-top: 1.5rem;
+    padding: 0 0.75rem;
+    font-family: monospace;
+    font-size: 3rem;
+    background: $donker-alt;
+    &:hover, &:active {
+      background: $donker;
+      color: $gubatgeel;
+    }
   }
 
 }
@@ -368,7 +381,7 @@ input, select {
 }
 
 .deploy-button-row {
-  padding-top: 1.5rem;
+  padding: 1.5rem;
 }
 
 @keyframes slidemotto{
