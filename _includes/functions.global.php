@@ -241,9 +241,9 @@ function ar_initECCCharacters() {
   $characterArr = array();
 
   $sql = "SELECT characterID, character_name 
-          FROM joomla.ecc_characters 
-          WHERE sheet_status <> 0 AND character_name IS NOT NULL AND character_name <> ''
-          ORDER by character_name ASC;";
+  FROM joomla.ecc_characters 
+  WHERE status <> 'inactive' AND character_name IS NOT NULL AND character_name <> '' 
+  ORDER by character_name ASC;";
   $result = $CharGenUPLINK->query($sql);
   $characterArr = $result;
 
