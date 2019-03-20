@@ -166,7 +166,7 @@ if(!isset($_SESSION)) {
               <h1> Ammo Deployment Form</h1>
               <div class="row rowcopy">
                 <label>Select Ammo Type</label>
-                <select name="deployGear[abid]" class="require-if-active" data-require-pair="#choice-ammo">
+                <select name="deployGear[0][abid]" class="require-if-active" data-require-pair="#choice-ammo">
                 <option value="">None</option>
                   <?php
                     foreach($ammoAvail as $ammochoice) {
@@ -175,7 +175,7 @@ if(!isset($_SESSION)) {
                   ?>
                 </select>
               <label>Amount</label>&nbsp;
-              <input type="number" class="numbers" style="max-width: 5rem;" class="require-if-active" data-require-pair="#choice-ammo" value="" name="deployGear[qty]" placeholder="0" min="1" />
+              <input type="number" class="numbers" style="max-width: 5rem;" class="require-if-active" data-require-pair="#choice-ammo" value="" name="deployGear[0][qty]" placeholder="0" min="1" />
               <div class="actions">
                   <span class="copy button button-sm">+</span>
                   <span class="remove button button-sm">-</span>
@@ -201,8 +201,16 @@ if(!isset($_SESSION)) {
   </div>
 </div>
 <script>
+    var i = 0;
     jQuery("body").on("click", ".copy", function(){
+        var find1 = "[" + i + "]";
+        i++;
+        var replace1 = "[" + i + "]";
         var copy1 = jQuery(".rowcopy:first").clone(true);
+        copy1 = copy1.html();
+        copy1 = copy1.replace(find1, replace1);
+        copy1 = copy1.replace(find1, replace1);
+        console.log(copy1);
         jQuery(copy1).appendTo(".reveal-if-active");
     })
 
