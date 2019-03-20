@@ -5,7 +5,7 @@
     font-size: 16px;
     transform: scale(0.8);
     transition: 0.5s;
-    
+
     label {
       display: block;
       margin: 0 0 3px 0;
@@ -13,7 +13,7 @@
     input[type=text] {
       width: 100%;
     }
-    
+
     input[type="radio"]:checked ~ &,
     input[type="checkbox"]:checked ~ & {
       opacity: 1;
@@ -22,9 +22,9 @@
       transform: scale(1);
       overflow: visible;
     }
-    
+
   }
-  
+
   form {
     max-width: 500px;
     margin: 20px auto;
@@ -44,7 +44,7 @@
       border-bottom: 2px solid green;
     }
   }
-  
+
   body {
     font-size: 20px;
   }
