@@ -388,6 +388,10 @@ input, select {
   100%    {margin-top:0;}
 }
 
-.rowcopy:first-child .remove{
-  display:none;
+.rowcopy {
+  &:first-child, &:nth-child(2) {
+    .remove {
+      display: none;
+    }
+  }
 }
