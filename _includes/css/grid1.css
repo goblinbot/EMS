@@ -1,69 +1,122 @@
-/*
-Error: Undefined variable: "$wit".
-        on line 2 of C:\Users\user\Desktop\EMS\_includes\css\grid1.scss
+.item {
+  background-color: #e6e6e6;
+  width: 100%;
+  height: auto;
+  overflow: hidden; }
 
-1: .item {
-2:   background-color: darken($wit,10%);
-3:   width: 100%;
-4:   height: auto;
-5:   overflow: hidden;
-6: }
-7: 
+.logo {
+  background: none;
+  grid-area: logo; }
+  .logo img {
+    margin-left: 2px;
+    max-width: 64px; }
 
-Backtrace:
-C:\Users\user\Desktop\EMS\_includes\css\grid1.scss:2
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `_perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:18:in `load'
-C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$wit\".\A         on line 2 of C:\Users\user\Desktop\EMS\_includes\css\grid1.scss\A \A 1: .item {\A 2:   background-color: darken($wit,10%);\A 3:   width: 100%;\A 4:   height: auto;\A 5:   overflow: hidden;\A 6: }\A 7: "; }
+.topbar {
+  background: #333;
+  grid-area: topbar; }
+  .topbar h1 {
+    color: #FFF; }
+
+.account {
+  grid-area: account; }
+  .account p {
+    padding: 0;
+    margin: 0;
+    padding-top: 15px;
+    color: #FFF;
+    text-align: center;
+    width: 100%;
+    height: 64px;
+    background: #333;
+    transition: 0.4s; }
+    .account p .fa {
+      font-size: 30px; }
+    .account p:hover {
+      background: #cc5200; }
+
+.header {
+  grid-area: header; }
+
+.vertibar {
+  grid-area: vertibar;
+  background: #ff6600;
+  text-align: center;
+  font-family: "orbitron-light", sans-serif, arial, verdana; }
+
+.menu {
+  grid-area: menu;
+  font-family: "orbitron-light", sans-serif, arial, verdana;
+  background: #ff6600; }
+
+.empty-1 {
+  grid-area: empty-1;
+  background: #993d00; }
+
+.empty-2 {
+  grid-area: empty-2;
+  background: #993d00; }
+
+.main {
+  grid-area: main;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .main .container {
+    margin: 8px;
+    padding: 8px; }
+    .main .container h1 {
+      margin: 8px 0;
+      padding: 8px 0; }
+
+.footer {
+  grid-area: footer;
+  background: #333; }
+
+.leftbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #FFF;
+  background: #cc5200;
+  font-size: 16px;
+  font-size: 1.6rem; }
+  .leftbar .block {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 64px; }
+    .leftbar .block p {
+      text-align: center;
+      background: #ff6600;
+      margin: 0;
+      padding: 21px 0 0 0;
+      height: 40px;
+      transition: 0.4s;
+      border-bottom: 1px solid #cc5200;
+      white-space: nowrap; }
+      .leftbar .block p .fa {
+        font-size: 24px;
+        margin-top: -3px; }
+      .leftbar .block p:hover, .leftbar .block p.active {
+        background: #ff8533; }
+    .leftbar .block:hover {
+      background: #cc5200; }
+
+@media (max-width: 1100px) {
+  .leftbar {
+    font-size: 14px;
+    font-size: 1.4rem; }
+    .leftbar.vertibar p {
+      width: 60px;
+      height: 56px;
+      float: left;
+      border-bottom: none;
+      border-right: 1px solid #cc5200; }
+      .leftbar.vertibar p .fa {
+        font-size: 21px;
+        font-size: 2.1rem; }
+    .leftbar.menu p {
+      height: 36px; } }
+
+/*# sourceMappingURL=grid1.css.map */
