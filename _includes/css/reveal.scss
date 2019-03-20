@@ -24,30 +24,3 @@
     }
 
   }
-
-  form {
-    max-width: 500px;
-    margin: 20px auto;
-    > div {
-      margin: 0 0 20px 0;
-      label {
-        font-weight: bold;
-      }
-      > div {
-        padding: 5px;
-      }
-    }
-    > h4 {
-      color: green;
-      font-size: 24px;
-      margin: 0 0 10px 0;
-      border-bottom: 2px solid green;
-    }
-  }
-
-  body {
-    font-size: 20px;
-  }
-  * {
-    box-sizing: border-box;
-  }

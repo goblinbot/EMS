@@ -17,25 +17,4 @@
     transform: scale(1);
     overflow: visible; }
 
-form {
-  max-width: 500px;
-  margin: 20px auto; }
-  form > div {
-    margin: 0 0 20px 0; }
-    form > div label {
-      font-weight: bold; }
-    form > div > div {
-      padding: 5px; }
-  form > h4 {
-    color: green;
-    font-size: 24px;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid green; }
-
-body {
-  font-size: 20px; }
-
-* {
-  box-sizing: border-box; }
-
 /*# sourceMappingURL=reveal.css.map */
