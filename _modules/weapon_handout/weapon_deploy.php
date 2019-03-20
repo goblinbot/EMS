@@ -177,8 +177,8 @@ if(!isset($_SESSION)) {
               <label>Amount</label>&nbsp;
               <input type="number" class="numbers" style="max-width: 5rem;" class="require-if-active" data-require-pair="#choice-ammo" value="" name="deployGear[qty]" placeholder="0" min="1" />
               <div class="actions">
-                  <span class="copy">+</span>
-                  <span class="remove">-</span>
+                  <span class="copy button button-sm">+</span>
+                  <span class="remove button button-sm">-</span>
               </div>
             </div>
 
